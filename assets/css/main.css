@@ -2048,3 +2048,14 @@ input, select, textarea {
 		#footer .copyright a {
 			color: inherit;
 		}
+
+
+.custom-link {
+  color: #ff4d4d;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.custom-link:hover {
+  opacity: 0.7;
+}
