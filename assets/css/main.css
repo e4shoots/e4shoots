@@ -2119,29 +2119,79 @@ input, select, textarea {
   transform: translateY(0);
 }
 
-<body>
+body {
+  margin: 0;
+  background: black;
+  color: white;
+  font-family: Arial, sans-serif;
+}
 
-  <!-- HERO -->
-  <section class="hero">
-    <h1>e4shoots</h1>
-  </section>
+/* NAV */
+.menu {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 15px;
+  background: rgba(0,0,0,0.6);
+  z-index: 1000;
+}
 
-  <!-- IMAGE GRID -->
-  <section class="grid">
-    <a href="/gallery/" class="tile">
-      <img src="/images/fulls/01.jpg">
-      <span>View Gallery</span>
-    </a>
+.menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
 
-    <a href="/about/" class="tile">
-      <img src="/images/fulls/02.jpg">
-      <span>About Me</span>
-    </a>
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 120px 20px 60px;
+}
 
-    <a href="/contact/" class="tile">
-      <img src="/images/fulls/03.jpg">
-      <span>Contact</span>
-    </a>
-  </section>
+.hero h1 {
+  font-size: 60px;
+  letter-spacing: 3px;
+}
 
-</body>
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* TILE */
+.tile {
+  position: relative;
+  overflow: hidden;
+}
+
+.tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+/* HOVER EFFECT */
+.tile:hover img {
+  transform: scale(1.05);
+  opacity: 0.7;
+}
+
+/* TEXT ON HOVER */
+.tile span {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  font-size: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.tile:hover span {
+  opacity: 1;
+}
