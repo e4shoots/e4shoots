@@ -2118,3 +2118,30 @@ input, select, textarea {
   opacity: 1;
   transform: translateY(0);
 }
+
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>e4shoots</h1>
+  </section>
+
+  <!-- IMAGE GRID -->
+  <section class="grid">
+    <a href="/gallery/" class="tile">
+      <img src="/images/fulls/01.jpg">
+      <span>View Gallery</span>
+    </a>
+
+    <a href="/about/" class="tile">
+      <img src="/images/fulls/02.jpg">
+      <span>About Me</span>
+    </a>
+
+    <a href="/contact/" class="tile">
+      <img src="/images/fulls/03.jpg">
+      <span>Contact</span>
+    </a>
+  </section>
+
+</body>
