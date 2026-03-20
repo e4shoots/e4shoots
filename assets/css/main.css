@@ -2111,6 +2111,7 @@ input, select, textarea {
 
   /* Smooth animation */
   transition: opacity 0.4s ease, transform 0.4s ease;
+  backdrop-filter: blur(10px);
 }
 
 #navBar.show {
