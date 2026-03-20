@@ -279,3 +279,15 @@
 				});
 
 })(jQuery);
+
+<script>
+window.addEventListener("scroll", function() {
+  const nav = document.getElementById("navBar");
+
+  if (window.scrollY > 100) {
+    nav.classList.add("show");
+  } else {
+    nav.classList.remove("show");
+  }
+});
+</script>
