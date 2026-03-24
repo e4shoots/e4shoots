@@ -2304,10 +2304,8 @@ button:hover {
   background: #005bb5;
 }
 
-<link rel="stylesheet" href="path-to-multiverse-css.css"> <!-- your template CSS -->
-<style>
-/* --- Body & fonts --- */
-body {
+
+a {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   margin: 0;
   background: #111;
