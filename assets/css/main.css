@@ -2242,72 +2242,57 @@ nav a.active {
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   background: #f5f5f7;
-  margin: 0;
-}
-
-.form-container {
-  display: flex;
-  justify-content: center;
-  padding: 60px 20px;
 }
 
 form {
   background: white;
-  padding: 40px;
+  padding: 30px;
   border-radius: 16px;
-  width: 100%;
-  max-width: 420px;
+  max-width: 380px;
+  margin: 60px auto;
   box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
-h2 {
-  text-align: center;
-  margin-bottom: 25px;
-}
-
-.field {
-  margin-bottom: 15px;
-}
-
+/* Labels */
 label {
+  font-size: 12px;
+  color: #555;
+  margin-bottom: 4px;
   display: block;
-  font-size: 13px;
-  margin-bottom: 5px;
-  color: #333;
 }
 
+/* Inputs */
 input, select {
   width: 100%;
-  padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
+  padding: 10px 12px; /* smaller = more modern */
   font-size: 14px;
-  outline: none;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background: #fafafa;
+  margin-bottom: 12px;
   transition: 0.2s;
 }
 
+/* Focus effect (important for modern feel) */
 input:focus, select:focus {
   border-color: #0071e3;
-  box-shadow: 0 0 0 2px rgba(0,113,227,0.2);
+  background: #fff;
+  box-shadow: 0 0 0 2px rgba(0,113,227,0.15);
+  outline: none;
 }
 
+/* Button */
 button {
   width: 100%;
-  padding: 12px;
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: none;
   background: #0071e3;
   color: white;
-  border: none;
-  border-radius: 10px;
-  font-size: 15px;
   cursor: pointer;
 }
 
 button:hover {
   background: #005bb5;
-}
-
-#status {
-  text-align: center;
-  margin-top: 10px;
-  font-size: 13px;
 }
