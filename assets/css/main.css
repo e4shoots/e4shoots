@@ -2200,6 +2200,9 @@ body {
   display: flex;
   align-items: center;
   gap: 12px;
+		margin-bottom: 0;
+  padding-bottom: 0;
+  display: inline-block;
 }
 
 .icon-text {
