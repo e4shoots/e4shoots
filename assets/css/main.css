@@ -1516,6 +1516,7 @@ input, select, textarea {
 				list-style: none;
 				margin: 0;
 				padding: 0;
+				font-weight: bold;
 			}
 
 				#header nav > ul > li {
@@ -2210,7 +2211,8 @@ body {
 navi a {
   text-decoration: none; /* remove underline */
   color: inherit;        /* normal text color */
-  margin-right: 15px;    /* space between words */
+  margin-right: 15px;  
+		font-weight: bold;  /* space between words */
 }
 
 navi a:hover {
