@@ -2206,7 +2206,6 @@ body {
   font-size: 1rem;
 }
 
-e {
+#header nav a {
   text-decoration: none;
-  color: inherit;
 }
