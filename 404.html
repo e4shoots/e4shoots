@@ -21,7 +21,7 @@
   const countdownElement = document.getElementById("countdown");
 
   const timer = setInterval(function() {
-    timeLeft--;
+    timeLeft = 5;
     countdownElement.textContent = timeLeft;
 
     if (timeLeft <= 0) {
