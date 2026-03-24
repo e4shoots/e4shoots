@@ -4,6 +4,13 @@
                 <!--<meta http-equiv="refresh" content="0; url=/">-->
 </head>
     <body class="gc">
-              <p>Sorry, you've ran into an error</p>
+              <h1>Sorry, you've ran into an error</h1>
+              <h4>error_code:404</h4>
+              <p>redirecting you to the home page in 10 seconds...</p>
+              <script>
+  setTimeout(function() {
+    window.location.href = "gallery/";
+  }, 10000); // 10000 ms = 10 seconds
+              </script>
     </body>
 </html>
