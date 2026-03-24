@@ -2196,3 +2196,12 @@ body {
   opacity: 1;
 }
 
+a {
+  color: inherit;        /* same color as text */
+  text-decoration: none; /* removes underline */
+}
+
+a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
