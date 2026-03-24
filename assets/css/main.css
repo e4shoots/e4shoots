@@ -2226,3 +2226,8 @@ a {
 nav a.active {
   color: #ffcc00; /* pick your highlight color */
 }
+
+.icon.brands.fa-instagram {
+  color: #E4405F; /* Example color */
+}
+
