@@ -32,30 +32,58 @@
 					</header>
 
 				<!-- Main -->
-					<form id="e4b">
-  <input type="text" name="name" placeholder="Name" required>
-  <input type="email" name="email" placeholder="Email" required>
-  <button type="submit">Send</button>
-</form>
+					<div class="form-container">
+  <form id="e4b">
 
-<script>
-document.getElementById("e4b").addEventListener("submit", async function(e) {
-  e.preventDefault(); // 🚫 stops redirect
+    <h2>Book a Session</h2>
 
-  const formData = new FormData(this);
+    <!-- Name -->
+    <div class="field">
+      <label>First Name *</label>
+      <input type="text" name="first_name" required>
+    </div>
 
-  await fetch("https://formspree.io/f/mreozqpa", {
-    method: "POST",
-    body: formData,
-    headers: {
-      'Accept': 'application/json'
-    }
-  });
+    <div class="field">
+      <label>Last Name *</label>
+      <input type="text" name="last_name" required>
+    </div>
 
-  alert("Form submitted!");
-  this.reset(); // clears form
-});
-</script>
+    <!-- Email -->
+    <div class="field">
+      <label>Email *</label>
+      <input type="email" name="email" required>
+    </div>
+
+    <!-- Phone -->
+    <div class="field">
+      <label>Phone Number</label>
+      <input type="tel" name="phone">
+    </div>
+
+    <!-- Address -->
+    <div class="field">
+      <label>Address / Closest Location</label>
+      <input type="text" name="address">
+    </div>
+
+    <!-- Package -->
+    <div class="field">
+      <label>Package *</label>
+      <select name="package" required>
+        <option value="">Select a package</option>
+        <option value="basic">Basic</option>
+        <option value="standard">Standard</option>
+        <option value="premium">Premium</option>
+      </select>
+    </div>
+
+    <!-- Submit -->
+    <button type="submit">Submit</button>
+
+    <p id="status"></p>
+
+  </form>
+</div>
 				<!-- Footer -->
 					<footer id="footer" class="panel">
 						<div class="inner split">
