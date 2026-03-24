@@ -2196,16 +2196,6 @@ body {
   opacity: 1;
 }
 
-navi a {
-  text-decoration: none; /* remove underline */
-  color: inherit;        /* normal text color */
-  margin-right: 15px;    /* space between words */
-}
-
-navi a:hover {
-  text-decoration: none;
-}
-
 .icons a {
   display: flex;
   align-items: center;
@@ -2214,4 +2204,9 @@ navi a:hover {
 
 .icon-text {
   font-size: 1rem;
+}
+
+e {
+  text-decoration: none;
+  color: inherit;
 }
