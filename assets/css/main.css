@@ -2222,3 +2222,6 @@ a {
   text-decoration: none;
 }
 
+nav a.active {
+  color: #ffcc00; /* pick your highlight color */
+}
