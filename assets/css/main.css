@@ -2234,3 +2234,7 @@ nav a.active {
 .copyright {
   color: #aaaaaa; /* Example custom color */
 }
+
+.gc {
+  text-align: center;
+}
