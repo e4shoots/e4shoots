@@ -33,53 +33,99 @@
 					</header>
 
 				<!-- Main -->
-					<head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Elia Shoots </title>
+<title>Elia's Shoots</title>
 <link rel="stylesheet" href="path-to-multiverse-css.css"> <!-- your template CSS -->
 <style>
-/* --- Hero Buttons --- */
-.btn-fullwidth {
-  display: block;
-  width: 100%;
-  max-width: 380px;
-  margin: 15px auto;
-  text-align: center;
-  padding: 15px 0;
-  font-size: 16px;
-  font-weight: 600;
+/* --- Body & fonts --- */
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  margin: 0;
+  background: #111;
+  color: #fff;
+  scroll-behavior: smooth;
 }
 
 /* --- Hero Section --- */
 .hero {
-  background: #111;
-  color: #fff;
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  padding: 100px 20px 60px;
+  background: linear-gradient(135deg, #1f1f1f, #111);
+  overflow: hidden;
+  padding: 0 20px;
 }
 
 .hero h1 {
-  font-size: 3rem;
-  margin-bottom: 15px;
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin: 0;
+  letter-spacing: 2px;
+  animation: fadeUp 1s ease forwards;
 }
 
 .hero p {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
+  max-width: 700px;
+  margin: 20px auto 40px;
   color: #ccc;
-  max-width: 600px;
-  margin: 0 auto 30px;
+  opacity: 0;
+  animation: fadeUp 1s ease 0.5s forwards;
 }
 
-/* --- About Section --- */
-.section {
-  padding: 60px 20px;
-  text-align: center;
+.hero .btn {
+  display: inline-block;
+  margin: 10px 0;
+  padding: 15px 50px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 10px;
+  border: none;
+  background: #0071e3;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+  opacity: 0;
+  animation: fadeUp 1s ease 1s forwards;
 }
 
-.section h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
+.hero .btn:hover {
+  background: #005bb5;
+}
+
+/* --- Animations --- */
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Photo Grid --- */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 15px;
+  padding: 60px 20px 80px;
+}
+
+.photo-grid img {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.photo-grid img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
 /* --- Footer --- */
@@ -104,31 +150,28 @@ footer a:hover {
 
 <!-- Hero Section -->
 <section class="hero">
-  <div class="container hero-content">
-    <h1>Elia Bernaldes Photography</h1>
-    <p>Capturing moments, telling stories, and creating visuals that inspire.</p>
-    <a href="booking.html" class="btn btn-primary btn-fullwidth">Book a Session</a>
-    <a href="gallery.html" class="btn btn-primary btn-fullwidth">View Portfolio</a>
-  </div>
+  <h1>Elia's Shoots</h1>
+  <p>Capturing moments, creating visuals, and telling stories through photography. Scroll down to see some of my work.</p>
+  <a href="gallery.html" class="btn">View Portfolio</a>
+  <a href="booking.html" class="btn">Book a Session</a>
 </section>
 
-<!-- About Section -->
-<section class="section">
-  <div class="container">
-    <h2>About Me</h2>
-    <p>Hi, I’m Elia. I’ve been passionate about photography since I was young, capturing everyday moments and transforming them into lasting memories. I specialize in portrait, landscape, and lifestyle photography.</p>
-  </div>
+<!-- Photo Preview Section -->
+<section class="photo-grid">
+  <img src="https://via.placeholder.com/600x400?text=Photo+1" alt="Photo 1">
+  <img src="https://via.placeholder.com/600x400?text=Photo+2" alt="Photo 2">
+  <img src="https://via.placeholder.com/600x400?text=Photo+3" alt="Photo 3">
+  <img src="https://via.placeholder.com/600x400?text=Photo+4" alt="Photo 4">
 </section>
 
 <!-- Footer -->
-<footer class="section">
-  <div class="container">
-    <p>&copy; 2026 Elia Bernaldes. All rights reserved.</p>
-    <p>Follow me on Instagram: <a href="https://www.instagram.com/e4shoots" target="_blank">@e4shoots</a></p>
-  </div>
+<footer>
+  <p>&copy; 2026 Elia Bernaldes. All rights reserved.</p>
+  <p>Follow me on Instagram: <a href="https://www.instagram.com/e4shoots" target="_blank">@e4shoots</a></p>
 </footer>
 
 </body>
+</html>
 
 
 				<!-- Footer -->
