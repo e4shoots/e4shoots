@@ -2205,3 +2205,13 @@ navi a {
 navi a:hover {
   text-decoration: none;
 }
+
+.icons a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.icon-text {
+  font-size: 1rem;
+}
