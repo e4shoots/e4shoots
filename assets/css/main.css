@@ -2218,7 +2218,7 @@ navi a:hover {
 }
 
 a {
-  border-bottom: none !important;
-  text-decoration: none !important;
+  border-bottom: none;
+  text-decoration: none;
 }
 
