@@ -2209,9 +2209,9 @@ navi a:hover {
 .icons a {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
 }
 
 .icon-text {
-  font-size: 1rem;
+  font-size: 4rem;
 }
