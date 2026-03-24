@@ -2308,7 +2308,7 @@ button:hover {
 a {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   margin: 0;
-  background: #111;
+  background: inherit;
   color: #fff;
   scroll-behavior: smooth;
 }
