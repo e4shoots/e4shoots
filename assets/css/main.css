@@ -2291,6 +2291,11 @@ button {
   background: #0071e3;
   color: white;
   cursor: pointer;
+		display: block;
+		margin: 20px 0;         /* spacing top/bottom only */
+  text-align: center;     /* centers text horizontally */
+  line-height: 1.4;       /* ensures vertical centering */
+  padding: 10px 0;  
 }
 
 button:hover {
