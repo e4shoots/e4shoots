@@ -2296,3 +2296,8 @@ button {
 button:hover {
   background: #005bb5;
 }
+
+#booking-form button {
+  display: block;
+  margin: 20px auto;
+}
