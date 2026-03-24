@@ -2206,6 +2206,12 @@ body {
   font-size: 1rem;
 }
 
-#header nav a {
+navi a {
+  text-decoration: none; /* remove underline */
+  color: inherit;        /* normal text color */
+  margin-right: 15px;    /* space between words */
+}
+
+navi a:hover {
   text-decoration: none;
 }
