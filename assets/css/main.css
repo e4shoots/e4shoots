@@ -2196,3 +2196,12 @@ body {
   opacity: 1;
 }
 
+.navi {
+  color: #ffffff;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.navi:hover {
+  opacity: 0.7;
+}
