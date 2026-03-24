@@ -2214,8 +2214,8 @@ navi a {
 
 navi a:hover {
   text-decoration: none;
-}
-
-navi a {
   border-bottom: none !important;
 }
+
+
+
