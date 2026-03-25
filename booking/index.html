@@ -130,6 +130,11 @@ form.addEventListener("submit", async (e) => {
   }
 });
 </script>
+<script>
+if (!sessionStorage.getItem("approved")) {
+  window.location.href = "index.html";
+}
+</script>
 				<!-- Footer -->
 					<footer id="footer" class="panel">
 						<div class="inner split">
