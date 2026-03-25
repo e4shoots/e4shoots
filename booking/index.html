@@ -55,32 +55,28 @@
 </style>
 				
 <div class="booking-wrapper">
-  <iframe 
-    src="https://e4shoots.setmore.com"
-    frameborder="0">
-  </iframe>
+  <iframe src="https://e4shoots.setmore.com"></iframe>
 </div>
 
 <style>
 .booking-wrapper {
   width: 100%;
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 0 15px;
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 0 10px;
 }
 
-/* Fixed but reasonable height */
 .booking-wrapper iframe {
   width: 100%;
-  height: 600px; /* NOT fullscreen */
+  height: 700px;   /* controlled height (NOT fullscreen) */
   border: none;
   border-radius: 12px;
 }
 
-/* Slightly adjust for mobile */
-@media (max-width: 600px) {
+/* Mobile */
+@media (max-width: 768px) {
   .booking-wrapper iframe {
-    height: 500px;
+    height: 550px;
   }
 }
 </style>
