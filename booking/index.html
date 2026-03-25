@@ -100,8 +100,9 @@
 </div>
 				
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js"></script>
-
+				
 <script>
 const firebaseConfig = {
   apiKey: "YOUR_KEY",
@@ -148,9 +149,18 @@ form.addEventListener("submit", async (e) => {
 if (!sessionStorage.getItem("approved")) {
   window.location.href = "index.html";
 }
+</script>
+<script>
+const firebaseConfig = {
+  apiKey: "YOUR_KEY",
+  authDomain: "YOUR_DOMAIN",
+  projectId: "YOUR_ID",
+  storageBucket: "YOUR_BUCKET",
+};
 
-
-	
+firebase.initializeApp(firebaseConfig);
+</script>
+<script>
 	const db = firebase.firestore();
 </script>
 	</body>
