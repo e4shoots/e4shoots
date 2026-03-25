@@ -53,7 +53,7 @@
 </style>
 				
 <div class="form-container">
-  <form id="booking-form" action="https://formspree.io/f/mreozqpa" method="POST">
+  <form id="booking-form">
 
     <h2>Book a Session</h2>
 
@@ -115,7 +115,7 @@ const db = firebase.firestore();
 </script>
 				
 <script>
-const form = document.getElementById("myForm");
+const form = document.getElementById("booking-form");
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
