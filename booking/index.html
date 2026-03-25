@@ -118,7 +118,7 @@
       });
 
       if (response.ok) {
-        status.textContent = "Thanks! Your request was sent.";
+        window.location.href = "/calendar/index.html"; 
         form.reset();
       } else {
         status.textContent = "Something went wrong. Try again.";
