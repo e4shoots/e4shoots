@@ -146,21 +146,6 @@ form.addEventListener("submit", async (e) => {
 });
 </script>
 <script>
-if (!sessionStorage.getItem("approved")) {
-  window.location.href = "index.html";
-}
-</script>
-<script>
-const firebaseConfig = {
-  apiKey: "YOUR_KEY",
-  authDomain: "YOUR_DOMAIN",
-  projectId: "YOUR_ID",
-  storageBucket: "YOUR_BUCKET",
-};
-
-firebase.initializeApp(firebaseConfig);
-</script>
-<script>
 	const db = firebase.firestore();
 </script>
 	</body>
