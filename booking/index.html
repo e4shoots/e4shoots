@@ -57,11 +57,6 @@
   <iframe src="https://hololai.setmore.com/book"></iframe>
 </div>
 
-<!-- Footer -->
-<footer>
-  Your footer content here
-</footer>
-
 <!-- Notice -->
 <div class="notice">
   Your notice here
@@ -74,51 +69,27 @@
 .booking-fullwidth {
   width: 100%;
   position: relative;
-  z-index: 1;              /* below footer and notice */
-  margin-bottom: 120px;    /* space for footer & notice */
+  z-index: 1;
+  margin-top: 20px;      /* space below header */
+  margin-bottom: 20px;   /* space above footer */
 }
 
 .booking-fullwidth iframe {
   width: 100%;
-  height: calc(100vh - 120px); /* fill viewport minus footer/notice */
+  height: 80vh;           /* fill most of viewport without overlapping header/footer */
   border: none;
   display: block;
   overflow: hidden;
 }
 
 /* ----------------------------
-   Page basics
----------------------------- */
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  background: #f5f5f7;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-}
-
-/* ----------------------------
-   Footer styling
----------------------------- */
-footer {
-  position: fixed;        /* fixed on desktop */
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  z-index: 100;
-  background-color: #f1f1f1;
-  padding: 10px;
-  text-align: center;
-}
-
-/* ----------------------------
    Notice styling
 ---------------------------- */
 .notice {
-  position: fixed;       /* floats above footer on desktop */
-  bottom: 60px;
+  position: fixed;        /* floats above content */
+  bottom: 20px;           /* above Multiverse footer */
   right: 20px;
-  z-index: 101;
+  z-index: 1000;          /* ensure on top */
   background-color: rgba(0,0,0,0.8);
   color: #fff;
   padding: 10px 15px;
@@ -130,24 +101,14 @@ footer {
    Mobile adjustments
 ---------------------------- */
 @media (max-width: 768px) {
-  /* Embed fills content, no fixed height issues */
   .booking-fullwidth iframe {
-    height: auto;
-    min-height: 600px;
+    height: 70vh;         /* adjust for mobile portrait */
   }
 
-  /* Footer scrolls below content instead of floating at top */
-  footer {
-    position: relative;
-    margin-top: 20px;
-  }
-
-  /* Notice scrolls below content as well */
   .notice {
-    position: relative;
-    bottom: auto;
-    right: auto;
-    margin: 10px 0 20px 0;
+    bottom: 15px;
+    right: 10px;
+    font-size: 12px;
   }
 }
 </style>
