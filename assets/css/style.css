@@ -125,3 +125,33 @@ body::before {
   text-align: center;
   margin-top: 0.25rem;
 }
+
+.bottom-stack {
+  position: fixed;       /* sticks at bottom of viewport */
+  bottom: 20px;          /* distance from bottom edge */
+  left: 50%;             /* center horizontally */
+  transform: translateX(-50%);
+  text-align: center;
+  color: #aaa;           /* gray text */
+  font-family: Arial, sans-serif;
+  z-index: 1000;
+}
+
+.bottom-stack a {
+  color: #aaa;
+  text-decoration: none;
+}
+
+.bottom-stack a:hover {
+  text-decoration: underline;
+}
+
+.bottom-stack .kauai-link {
+  font-size: 16px;
+  margin: 0;
+}
+
+.bottom-stack .copyright {
+  font-size: 12px;
+  margin: 2px 0 0 0;
+}
