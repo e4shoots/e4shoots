@@ -84,17 +84,22 @@ body::before {
   border: 1px solid rgba(255, 255, 255, 0.2);
 
   transition: all 0.25s ease;
+  text-shadow: 0 0 4px rgba(255, 255, 255, 0.15);
+  letter-spacing: 1px;
 }
 
 /* ===== HOVER EFFECT ===== */
 .link:hover {
   background: rgba(255, 255, 255, 0.9);
   color: #000;
+  letter-spacing: 1px;
 
   transform: translateY(-2px);
 
   /* glow effect */
   box-shadow: 0 0 12px rgba(255,255,255,0.25);
+
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
 }
 
 /* ===== CLICK FEEL ===== */
