@@ -114,3 +114,27 @@ body::before {
   color: #fff; /* slightly brighter on hover */
   text-shadow: 0 0 12px rgba(255, 255, 255, 0.15); /* stronger glow on hover */
 }
+
+.kauai-link {
+  color: #aaa;
+  font-size: 16px;
+  text-align: center;
+  margin-top: 0.5rem;
+  text-decoration: none;
+}
+
+.kauai-link a {
+  color: #aaa;
+  text-decoration: none;
+}
+
+.kauai-link a:hover {
+  text-decoration: underline;
+}
+
+.copyright {
+  color: #aaa;
+  font-size: 12px;
+  text-align: center;
+  margin-top: 0.25rem;
+}
