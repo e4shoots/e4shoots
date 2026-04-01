@@ -4,70 +4,100 @@
   box-sizing: border-box;
 }
 
+/* ===== BODY ===== */
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 
-  /* BACKGROUND IMAGE */
   background: url("images/homebg.jpg") no-repeat center center/cover;
-  position: relative;
   color: #fff;
+  position: relative;
 }
 
+/* DARK OVERLAY */
 body::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.55); /* adjust darkness here */
+  background: rgba(0, 0, 0, 0.65);
   z-index: 0;
 }
 
+/* ===== CONTAINER ===== */
 .container {
   position: relative;
   z-index: 1;
 
   width: 100%;
   max-width: 500px;
-  padding: 20px;
+  padding: 30px 20px;
   text-align: center;
 }
 
+/* ===== LOGO ===== */
 .logo {
-  font-size: 28px;
-  letter-spacing: 4px;
-  margin-bottom: 10px;
+  font-size: 30px;
+  letter-spacing: 6px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+/* subtle futuristic glow */
+.logo {
+  text-shadow: 0 0 10px rgba(255,255,255,0.15);
 }
 
 .tagline {
-  font-size: 14px;
+  font-size: 13px;
   color: #aaa;
   margin-bottom: 40px;
+  letter-spacing: 1px;
 }
 
+/* ===== LINKS ===== */
 .links {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 14px;
 }
 
+/* ===== BUTTON STYLE ===== */
 .link {
   display: block;
-  padding: 15px;
-  border: 1px solid #fff;
+  padding: 14px;
+
   text-decoration: none;
   color: #fff;
-  transition: all 0.25s ease;
+  font-size: 14px;
+  letter-spacing: 1px;
 
-  background: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(6px);
+  /* 👇 MICRO ROUNDED CORNERS */
+  border-radius: 3px;
+
+  /* glass + futuristic feel */
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  transition: all 0.25s ease;
 }
 
-/* HOVER ANIMATION */
+/* ===== HOVER EFFECT ===== */
 .link:hover {
-  background: #fff;
+  background: rgba(255, 255, 255, 0.9);
   color: #000;
+
   transform: translateY(-2px);
+
+  /* glow effect */
+  box-shadow: 0 0 12px rgba(255,255,255,0.25);
+}
+
+/* ===== CLICK FEEL ===== */
+.link:active {
+  transform: translateY(0px) scale(0.98);
 }
