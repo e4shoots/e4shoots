@@ -102,10 +102,14 @@ body::before {
   transform: translateY(0px) scale(0.98);
 }
 
-/* LOCATION UNDER TAGLINE */
-.location {
-  font-size: 12px;
+.location a {
   color: #aaa; /* gray */
-  letter-spacing: 1px;
-  margin-bottom: 30px; /* space before links */
+  text-decoration: none; /* remove underline */
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.1); /* subtle glow */
+  transition: all 0.25s ease;
+}
+
+.location a:hover {
+  color: #fff; /* slightly brighter on hover */
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.15); /* stronger glow on hover */
 }
