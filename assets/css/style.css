@@ -78,8 +78,8 @@ body::before {
   border-radius: 3px;
 
   /* glass + futuristic feel */
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(6px);
 
   border: 1px solid rgba(255, 255, 255, 0.2);
 
