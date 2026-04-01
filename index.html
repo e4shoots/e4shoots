@@ -5,31 +5,43 @@
   <title>e4shoots</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="style.css">
-
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
   <main class="container">
 
     <!-- BRAND -->
     <h1 class="logo">e4shoots</h1>
-    <p class="tagline">Capture Moments That Matter</p>
+    <p class="tagline">capture moments that matter</p>
 
     <!-- LINKS -->
-    <div class="links">
+    <nav class="links">
 
-      <a href="#" class="link">Instagram</a>
+      <a href="#" class="link">portfolio</a>
+      <a href="#" class="link">book a session</a>
+      <a href="#" class="link">instagram</a>
 
       <!-- ADD MORE LINKS BELOW -->
-      <!-- just copy this line -->
-      <!-- <a href="#" class="link">New Link</a> -->
+      <!-- <a href="#" class="link">new link</a> -->
 
-    </div>
+    </nav>
 
   </main>
+
+  <!-- Smooth page load animation -->
+  <script>
+    document.body.style.opacity = 0;
+    window.onload = () => {
+      document.body.style.transition = "opacity 0.6s ease";
+      document.body.style.opacity = 1;
+    };
+  </script>
 
 </body>
 </html>
