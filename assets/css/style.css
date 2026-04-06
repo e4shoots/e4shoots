@@ -1,3 +1,8 @@
+/* =========== 
+style.css
+assets/css/style.css
+=========== */
+
 * {
   margin: 0;
   padding: 0;
@@ -43,10 +48,6 @@ body::before {
   letter-spacing: 6px;
   font-weight: 600;
   margin-bottom: 8px;
-}
-
-/* subtle futuristic glow */
-.logo {
   text-shadow: 0 0 10px rgba(255,255,255,0.15);
 }
 
@@ -74,10 +75,8 @@ body::before {
   font-size: 14px;
   letter-spacing: 1px;
 
-  /* 👇 MICRO ROUNDED CORNERS */
   border-radius: 3px;
 
-  /* glass + futuristic feel */
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(6px);
 
@@ -85,20 +84,16 @@ body::before {
 
   transition: all 0.25s ease;
   text-shadow: 0 0 4px rgba(255, 255, 255, 0.15);
-  letter-spacing: 1px;
 }
 
 /* ===== HOVER EFFECT ===== */
 .link:hover {
   background: rgba(255, 255, 255, 0.9);
   color: #000;
-  letter-spacing: 1px;
 
   transform: translateY(-2px);
 
-  /* glow effect */
   box-shadow: 0 0 12px rgba(255,255,255,0.25);
-
   text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
 }
 
@@ -107,6 +102,52 @@ body::before {
   transform: translateY(0px) scale(0.98);
 }
 
+/* ===== POST CARD (MATCHES BUTTON STYLE) ===== */
+.post-card {
+  display: block;
+  margin-top: 14px;
+
+  padding: 10px;
+
+  text-decoration: none;
+  color: #fff;
+
+  border-radius: 3px;
+
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  transition: all 0.25s ease;
+}
+
+/* image inside */
+.post-card img {
+  width: 100%;
+  border-radius: 2px;
+  margin-bottom: 8px;
+}
+
+/* label text */
+.post-card p {
+  font-size: 13px;
+  color: #ccc;
+  letter-spacing: 1px;
+}
+
+/* hover = same feel as buttons */
+.post-card:hover {
+  background: rgba(255, 255, 255, 0.9);
+  color: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 0 12px rgba(255,255,255,0.25);
+}
+
+.post-card:hover p {
+  color: #000;
+}
+
+/* ===== BOTTOM TEXT ===== */
 .kauai-link {
   color: #aaa;
   font-size: 16px;
@@ -131,13 +172,14 @@ body::before {
   margin-top: 0.25rem;
 }
 
+/* ===== FIXED FOOTER STACK ===== */
 .bottom-stack {
-  position: fixed;       /* sticks at bottom of viewport */
-  bottom: 20px;          /* distance from bottom edge */
-  left: 50%;             /* center horizontally */
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
   transform: translateX(-50%);
   text-align: center;
-  color: #aaa;           /* gray text */
+  color: #aaa;
   font-family: Arial, sans-serif;
   z-index: 1000;
 }
@@ -161,12 +203,13 @@ body::before {
   margin: 2px 0 0 0;
 }
 
+/* ===== CORNER LOGO ===== */
 .corner-logo {
   position: fixed;
   top: 20px;
   left: 20px;
 
-  width: 34px; /* slightly smaller = cleaner */
+  width: 34px;
   height: auto;
 
   z-index: 2;
@@ -176,8 +219,10 @@ body::before {
   filter: drop-shadow(0 0 6px rgba(255,255,255,0.2));
 }
 
-/* subtle modern hover */
 .corner-logo:hover {
-  opacity: 1;
   transform: scale(1.08);
 }
+
+
+
+
