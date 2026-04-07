@@ -12,46 +12,52 @@
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body>
+<body class="home-body">
+
+  <!-- Corner Logo -->
   <a href="/">
     <img src="images/favicon.png" alt="e4shoots logo" class="corner-logo">
   </a>
 
+  <!-- Main Content -->
   <main class="container">
 
     <h1 class="logo">e4shoots</h1>
-    <p class="tagline">all my links in one place.</p>
+    <p class="tagline">Modern photography from Kaua‘i.</p>
 
     <nav class="links">
       <a href="https://instagram.com/e4shoots" target="_blank" class="link">
-        Instagram <span style="color:#4DA6FF;">[ @e4shoots ]</span>
+        Instagram <span style="opacity:0.6;">@e4shoots</span>
       </a>
 
       <a href="https://instagram.com/ebernaldes" target="_blank" class="link">
-        Instagram <span style="color:#D1D5DB;">[ @ebernaldes ]</span>
+        Instagram <span style="opacity:0.6;">@ebernaldes</span>
       </a>
 
-    <a href="/portfolio" target="_blank" class="link">
-        Portfolio</span>
+      <!-- Portfolio (NO target="_blank") -->
+      <a href="portfolio.html" class="link">
+        Portfolio
       </a>
     </nav>
 
     <div class="bottom-stack">
       <p class="kauai-link">
-        <a href="https://maps.apple/p/TL5.Eg0GVTK9pL" target="_blank">[ KAUA'I, HAWAI'I ]</a>
+        <a href="https://maps.apple/p/TL5.Eg0GVTK9pL" target="_blank">
+          [ Kaua‘i, Hawai‘i ]
+        </a>
       </p>
-      <p class="copyright">[ &copy; 2026 e4shoots ]</p>
+      <p>[ © 2026 e4shoots ]</p>
     </div>
 
   </main>
 
-  <!-- Smooth page load animation -->
+  <!-- Smooth fade-in -->
   <script>
     document.body.style.opacity = 0;
-    window.onload = () => {
+    window.addEventListener("load", () => {
       document.body.style.transition = "opacity 0.6s ease";
       document.body.style.opacity = 1;
-    };
+    });
   </script>
 
 </body>
