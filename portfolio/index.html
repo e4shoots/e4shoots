@@ -2,140 +2,76 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <title>Portfolio | e4shoots</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Portfolio</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
 
-  <!-- Your CSS -->
-  <link rel="stylesheet" href="/assets/css/style.css">
-
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body class="portfolio-body">
 
-  <!-- =========================
-       TOP NAV (TABS)
-  ========================= -->
-  <div class="portfolio-top">
-    <div class="tabs" id="tabs"></div>
+  <!-- Corner Logo -->
+  <a href="/">
+    <img src="images/favicon.png" alt="e4shoots logo" class="corner-logo">
+  </a>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Portfolio</h1>
+    <p>Selected work from Kaua‘i and beyond.</p>
+  </section>
+
+  <!-- IMAGE GRID -->
+  <section class="grid">
+
+    <!-- Replace these with your real images -->
+    <img src="images/1.jpg" alt="photo 1">
+    <img src="images/2.jpg" alt="photo 2">
+    <img src="images/3.jpg" alt="photo 3">
+    <img src="images/4.jpg" alt="photo 4">
+    <img src="images/5.jpg" alt="photo 5">
+    <img src="images/6.jpg" alt="photo 6">
+
+    <img src="images/7.jpg" alt="photo 7">
+    <img src="images/8.jpg" alt="photo 8">
+    <img src="images/9.jpg" alt="photo 9">
+
+  </section>
+
+  <!-- OPTIONAL SECTION (ALBUM LINKS / EMBEDS) -->
+  <section class="hero">
+    <h1>Albums</h1>
+    <p>Browse full collections.</p>
+  </section>
+
+  <!-- GOOGLE PHOTOS / EMBEDS (SAFE WRAP) -->
+  <section style="max-width:1000px; margin: 0 auto; padding: 20px;">
+
+    <!-- Replace with your actual embed links -->
+    <iframe 
+      src="https://photos.app.goo.gl/your-album-link"
+      style="width:100%; height:500px; border:0;"
+      loading="lazy">
+    </iframe>
+
+  </section>
+
+  <!-- BACK LINK -->
+  <div style="text-align:center; margin: 60px 0;">
+    <a href="/" class="link">← Back to Home</a>
   </div>
 
-  <!-- =========================
-       GALLERIES CONTAINER
-  ========================= -->
-  <div class="gallery-wrapper">
-    <div id="galleries"></div>
-  </div>
-
-  <!-- =========================
-       MODULAR ALBUM SYSTEM
-  ========================= -->
+  <!-- Smooth fade-in -->
   <script>
-    const cloudName = "YOUR_CLOUD_NAME";
-
-    // 🔥 Modular Albums (EDIT ONLY THIS)
-    const albums = [
-      {
-        id: "album1",
-        title: "Weddings",
-        images: [
-          "sample/1",
-          "sample/2",
-          "sample/3",
-          "sample/4"
-        ]
-      },
-      {
-        id: "album2",
-        title: "Portraits",
-        images: [
-          "sample/5",
-          "sample/6",
-          "sample/7"
-        ]
-      },
-      {
-        id: "album3",
-        title: "Street",
-        images: [
-          "sample/8",
-          "sample/9"
-        ]
-      }
-    ];
-
-    const tabsContainer = document.getElementById("tabs");
-    const galleriesContainer = document.getElementById("galleries");
-
-    // =========================
-    // CREATE TABS
-    // =========================
-    function createTabs() {
-      albums.forEach((album, index) => {
-        const tab = document.createElement("button");
-
-        tab.className = "tab";
-        tab.innerText = album.title;
-
-        if (index === 0) tab.classList.add("active");
-
-        tab.onclick = () => switchAlbum(album.id, tab);
-
-        tabsContainer.appendChild(tab);
-      });
-    }
-
-    // =========================
-    // CREATE GALLERIES
-    // =========================
-    function createGalleries() {
-      albums.forEach((album, index) => {
-        const gallery = document.createElement("div");
-
-        gallery.id = album.id;
-        gallery.className = "gallery";
-
-        if (index === 0) gallery.classList.add("active");
-
-        album.images.forEach(publicId => {
-          const img = document.createElement("img");
-
-          img.src = `https://res.cloudinary.com/${cloudName}/image/upload/${publicId}.jpg`;
-
-          gallery.appendChild(img);
-        });
-
-        galleriesContainer.appendChild(gallery);
-      });
-    }
-
-    // =========================
-    // SWITCH ALBUM
-    // =========================
-    function switchAlbum(id, clickedTab) {
-
-      // hide all galleries
-      document.querySelectorAll(".gallery").forEach(g => {
-        g.classList.remove("active");
-      });
-
-      // show selected gallery
-      document.getElementById(id).classList.add("active");
-
-      // update tabs
-      document.querySelectorAll(".tab").forEach(t => {
-        t.classList.remove("active");
-      });
-
-      clickedTab.classList.add("active");
-    }
-
-    // =========================
-    // INIT
-    // =========================
-    createTabs();
-    createGalleries();
-
+    document.body.style.opacity = 0;
+    window.addEventListener("load", () => {
+      document.body.style.transition = "opacity 0.6s ease";
+      document.body.style.opacity = 1;
+    });
   </script>
 
 </body>
