@@ -8,35 +8,36 @@
 }
 
 /* =========================
-   GLOBAL (HOME)
+   GLOBAL
 ========================= */
-body {
-  font-family: 'Inter', sans-serif;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  background: url("/images/homebg.jpg") no-repeat center center/cover;
-  color: #fff;
-  position: relative;
-
-  animation: bgZoom 20s ease-in-out infinite alternate;
+html, body {
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
 }
 
-/* BACKGROUND ANIMATION */
-@keyframes bgZoom {
-  0% { background-size: 100%; }
-  100% { background-size: 110%; }
+body {
+  font-family: 'Inter', sans-serif;
+  color: #fff;
+
+  /* FIX: Stable background for mobile */
+  background-image: url("/images/homebg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll; /* IMPORTANT FIX */
+  background-color: #000;
+
+  position: relative;
 }
 
 /* DARK OVERLAY */
 body::before {
   content: "";
-  position: absolute;
+  position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.65);
-  z-index: 0;
+  background: rgba(0,0,0,0.65);
+  z-index: -1;
 }
 
 /* =========================
@@ -48,17 +49,10 @@ body::before {
 
   width: 100%;
   max-width: 520px;
-  padding: 40px 25px;
-  text-align: center;
-}
+  margin: 0 auto;
 
-/* GLOW EFFECT */
-.container::before {
-  content: "";
-  position: absolute;
-  inset: -20px;
-  background: radial-gradient(circle, rgba(255,255,255,0.08), transparent 70%);
-  z-index: -1;
+  padding: 40px 20px;
+  text-align: center;
 }
 
 /* =========================
@@ -67,19 +61,17 @@ body::before {
 .logo {
   font-family: 'Poppins', sans-serif;
   font-size: 32px;
-  letter-spacing: 8px;
-  font-weight: 600;
+  letter-spacing: 6px;
 
-  background: linear-gradient(90deg, #fff, #bbb);
+  background: linear-gradient(90deg, #fff, #aaa);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .tagline {
   font-size: 13px;
-  color: #aaa;
-  margin-bottom: 40px;
-  letter-spacing: 1px;
+  color: #bbb;
+  margin-bottom: 30px;
 }
 
 /* =========================
@@ -88,68 +80,31 @@ body::before {
 .links {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
 }
 
 .link {
-  position: relative;
-  overflow: hidden;
-
   display: block;
   padding: 14px;
 
   text-decoration: none;
   color: #fff;
   font-size: 14px;
-  letter-spacing: 1px;
 
-  border-radius: 6px;
+  border-radius: 8px;
 
-  background: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(8px);
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(10px);
 
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255,255,255,0.2);
 
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-/* SHINE EFFECT */
-.link::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    120deg,
-    transparent,
-    rgba(255,255,255,0.2),
-    transparent
-  );
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.link:hover::before {
-  opacity: 1;
+  transition: all 0.25s ease;
 }
 
 .link:hover {
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255,255,255,0.9);
   color: #000;
   transform: translateY(-2px);
-}
-
-.link:active {
-  transform: scale(0.98);
-}
-
-/* TEXT COLORS */
-.highlight-blue {
-  color: #4DA6FF;
-}
-
-.highlight-gray {
-  color: #D1D5DB;
 }
 
 /* =========================
@@ -157,12 +112,13 @@ body::before {
 ========================= */
 .bottom-stack {
   position: fixed;
-  bottom: 20px;
+  bottom: 15px;
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
+
+  font-size: 12px;
   color: #aaa;
-  z-index: 1000;
 }
 
 .bottom-stack a {
@@ -174,14 +130,6 @@ body::before {
   text-decoration: underline;
 }
 
-.bottom-stack .kauai-link {
-  font-size: 16px;
-}
-
-.bottom-stack .copyright {
-  font-size: 12px;
-}
-
 /* =========================
    CORNER LOGO
 ========================= */
@@ -190,96 +138,67 @@ body::before {
   top: 20px;
   left: 20px;
 
-  width: 34px;
-  z-index: 2;
+  width: 36px;
+  z-index: 10;
 
-  transition: 0.25s ease;
-  filter: drop-shadow(0 0 6px rgba(255,255,255,0.2));
-}
-
-.corner-logo:hover {
-  transform: scale(1.08);
-}
-
-/* =========================
-   INSTAGRAM EMBED
-========================= */
-.instagram-embed-wrapper {
-  border-radius: 12px;
-  overflow: hidden;
-  max-width: 540px;
-  margin: 20px auto;
+  filter: drop-shadow(0 0 6px rgba(255,255,255,0.3));
 }
 
 /* =========================
    PORTFOLIO PAGE
 ========================= */
-
 .portfolio-body {
-  background: url("/images/homebg.jpg") no-repeat center center/cover;
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;
+
+  /* FIX: same safe background handling */
+  background-image: url("/images/homebg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+
   position: relative;
 }
 
 /* OVERLAY */
 .portfolio-body::before {
   content: "";
-  position: absolute;
+  position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.7);
-  z-index: 0;
+  z-index: -1;
 }
 
-/* BACK BUTTON */
-.back-button {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  color: #fff;
-  text-decoration: none;
-  font-size: 14px;
-  z-index: 2;
-  opacity: 0.7;
-  transition: 0.3s;
-}
-
-.back-button:hover {
-  opacity: 1;
-}
-
-/* TOP BAR */
+/* =========================
+   NAV / TABS
+========================= */
 .portfolio-top {
   position: fixed;
-  top: 20px;
+  top: 15px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 2;
+  z-index: 10;
 }
 
-/* TABS */
 .tabs {
   display: flex;
   gap: 10px;
 }
 
 .tab {
-  padding: 10px 16px;
+  padding: 8px 14px;
+  border-radius: 6px;
+
   border: none;
   cursor: pointer;
 
   background: rgba(255,255,255,0.15);
-  backdrop-filter: blur(6px);
   color: #fff;
 
-  border-radius: 6px;
+  backdrop-filter: blur(6px);
   font-size: 13px;
 
   transition: 0.25s;
-}
-
-.tab:hover {
-  background: rgba(255,255,255,0.3);
 }
 
 .tab.active {
@@ -288,75 +207,72 @@ body::before {
 }
 
 /* =========================
-   SCROLLABLE GALLERY
+   GALLERY
 ========================= */
-
 .gallery-wrapper {
-  position: absolute;
-  top: 80px;
-  width: 100%;
+  margin-top: 80px;
+  padding: 20px;
+
   height: calc(100vh - 80px);
   overflow-y: auto;
-  z-index: 1;
-  padding: 20px;
 }
 
-/* GRID */
 .gallery {
   display: none;
-  grid-template-columns: repeat(3, 1fr);
   gap: 12px;
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .gallery.active {
   display: grid;
 }
 
-/* IMAGES */
 .gallery img {
   width: 100%;
-  height: 300px;
+  height: 280px;
   object-fit: cover;
 
   border-radius: 6px;
-
-  transition: 0.3s ease;
-  cursor: pointer;
+  transition: 0.25s ease;
 }
 
 .gallery img:hover {
   transform: scale(1.03);
-  opacity: 0.85;
 }
 
 /* =========================
-   MOBILE
+   MOBILE FIXES (CRITICAL)
 ========================= */
-@media (max-width: 900px) {
+@media (max-width: 768px) {
+
+  /* FIX: prevent background bugs on iOS */
+  body,
+  .portfolio-body {
+    background-attachment: scroll !important;
+  }
+
+  /* Disable heavy effects */
+  .link {
+    backdrop-filter: blur(6px);
+  }
+
+  /* Layout tweaks */
   .gallery {
     grid-template-columns: repeat(2, 1fr);
   }
-}
-
-@media (max-width: 600px) {
 
   .logo {
     font-size: 26px;
-  }
-
-  .link {
-    font-size: 13px;
-    padding: 13px;
-  }
-
-  .tab {
-    padding: 8px 12px;
-    font-size: 12px;
   }
 }
 
 @media (max-width: 500px) {
   .gallery {
     grid-template-columns: 1fr;
+  }
+
+  .tab {
+    font-size: 12px;
+    padding: 7px 10px;
   }
 }
