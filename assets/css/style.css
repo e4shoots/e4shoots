@@ -1,5 +1,5 @@
 /* =========================
-   RESET
+   RESET + GLOBAL FIXES
 ========================= */
 * {
   margin: 0;
@@ -7,9 +7,6 @@
   box-sizing: border-box;
 }
 
-/* =========================
-   GLOBAL
-========================= */
 html, body {
   width: 100%;
   min-height: 100%;
@@ -20,13 +17,13 @@ body {
   font-family: 'Inter', sans-serif;
   color: #fff;
 
-  /* FIX: Stable background for mobile */
+  /* SAFE BACKGROUND (NO BUGS ON MOBILE) */
+  background-color: #000;
   background-image: url("/images/homebg.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: scroll; /* IMPORTANT FIX */
-  background-color: #000;
+  background-attachment: scroll;
 
   position: relative;
 }
@@ -41,74 +38,101 @@ body::before {
 }
 
 /* =========================
-   CONTAINER
+   PORTFOLIO LAYOUT
 ========================= */
-.container {
-  position: relative;
-  z-index: 1;
-
-  width: 100%;
-  max-width: 520px;
-  margin: 0 auto;
-
-  padding: 40px 20px;
-  text-align: center;
+.portfolio-body {
+  min-height: 100vh;
 }
 
 /* =========================
-   LOGO
+   TOP NAV
 ========================= */
-.logo {
-  font-family: 'Poppins', sans-serif;
-  font-size: 32px;
-  letter-spacing: 6px;
-
-  background: linear-gradient(90deg, #fff, #aaa);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.tagline {
-  font-size: 13px;
-  color: #bbb;
-  margin-bottom: 30px;
+.portfolio-top {
+  position: fixed;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
 }
 
 /* =========================
-   LINKS
+   TABS
 ========================= */
-.links {
+.tabs {
   display: flex;
-  flex-direction: column;
-  gap: 14px;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-.link {
-  display: block;
-  padding: 14px;
+.tab {
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
 
-  text-decoration: none;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(6px);
   color: #fff;
-  font-size: 14px;
+
+  font-size: 13px;
+
+  transition: 0.25s ease;
+}
+
+.tab:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+.tab.active {
+  background: #fff;
+  color: #000;
+}
+
+/* =========================
+   GALLERY WRAPPER
+========================= */
+.gallery-wrapper {
+  margin-top: 80px;
+  padding: 20px;
+}
+
+/* =========================
+   GALLERY GRID
+========================= */
+.gallery {
+  display: none;
+
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.gallery.active {
+  display: grid;
+}
+
+/* =========================
+   IMAGES
+========================= */
+.gallery img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
 
   border-radius: 8px;
 
-  background: rgba(255,255,255,0.12);
-  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease, opacity 0.3s ease;
 
-  border: 1px solid rgba(255,255,255,0.2);
-
-  transition: all 0.25s ease;
+  cursor: pointer;
 }
 
-.link:hover {
-  background: rgba(255,255,255,0.9);
-  color: #000;
-  transform: translateY(-2px);
+.gallery img:hover {
+  transform: scale(1.03);
+  opacity: 0.9;
 }
 
 /* =========================
-   FOOTER
+   FOOTER (OPTIONAL)
 ========================= */
 .bottom-stack {
   position: fixed;
@@ -119,15 +143,6 @@ body::before {
 
   font-size: 12px;
   color: #aaa;
-}
-
-.bottom-stack a {
-  color: #aaa;
-  text-decoration: none;
-}
-
-.bottom-stack a:hover {
-  text-decoration: underline;
 }
 
 /* =========================
@@ -145,134 +160,41 @@ body::before {
 }
 
 /* =========================
-   PORTFOLIO PAGE
+   RESPONSIVE DESIGN
 ========================= */
-.portfolio-body {
-  min-height: 100vh;
 
-  /* FIX: same safe background handling */
-  background-image: url("/images/homebg.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-
-  position: relative;
-}
-
-/* OVERLAY */
-.portfolio-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.7);
-  z-index: -1;
-}
-
-/* =========================
-   NAV / TABS
-========================= */
-.portfolio-top {
-  position: fixed;
-  top: 15px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 10;
-}
-
-.tabs {
-  display: flex;
-  gap: 10px;
-}
-
-.tab {
-  padding: 8px 14px;
-  border-radius: 6px;
-
-  border: none;
-  cursor: pointer;
-
-  background: rgba(255,255,255,0.15);
-  color: #fff;
-
-  backdrop-filter: blur(6px);
-  font-size: 13px;
-
-  transition: 0.25s;
-}
-
-.tab.active {
-  background: #fff;
-  color: #000;
-}
-
-/* =========================
-   GALLERY
-========================= */
-.gallery-wrapper {
-  margin-top: 80px;
-  padding: 20px;
-
-  height: calc(100vh - 80px);
-  overflow-y: auto;
-}
-
-.gallery {
-  display: none;
-  gap: 12px;
-  grid-template-columns: repeat(3, 1fr);
-}
-
-.gallery.active {
-  display: grid;
-}
-
-.gallery img {
-  width: 100%;
-  height: 280px;
-  object-fit: cover;
-
-  border-radius: 6px;
-  transition: 0.25s ease;
-}
-
-.gallery img:hover {
-  transform: scale(1.03);
-}
-
-/* =========================
-   MOBILE FIXES (CRITICAL)
-========================= */
-@media (max-width: 768px) {
-
-  /* FIX: prevent background bugs on iOS */
-  body,
-  .portfolio-body {
-    background-attachment: scroll !important;
-  }
-
-  /* Disable heavy effects */
-  .link {
-    backdrop-filter: blur(6px);
-  }
-
-  /* Layout tweaks */
+/* TABLET */
+@media (max-width: 900px) {
   .gallery {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .logo {
-    font-size: 26px;
+  .gallery img {
+    height: 220px;
   }
 }
 
+/* MOBILE */
 @media (max-width: 500px) {
   .gallery {
     grid-template-columns: 1fr;
   }
 
+  .gallery img {
+    height: 250px;
+  }
+
   .tab {
     font-size: 12px;
     padding: 7px 10px;
+  }
+}
+
+/* =========================
+   PERFORMANCE FIX (IMPORTANT)
+========================= */
+@media (max-width: 768px) {
+  body {
+    background-attachment: scroll !important;
   }
 }
