@@ -11,8 +11,10 @@
    GLOBAL
 ========================= */
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, sans-serif;
   color: #fff;
+  background: #000;
+  overflow-x: hidden;
 }
 
 /* =========================
@@ -20,7 +22,6 @@ body {
 ========================= */
 .home-body {
   height: 100vh;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -29,34 +30,37 @@ body {
   position: relative;
 }
 
-/* DARK OVERLAY */
+/* LIGHT OVERLAY (APPLE STYLE) */
 .home-body::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.65);
-  z-index: 0;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(6px);
 }
 
-/* CONTENT ON TOP */
+/* CONTENT */
 .container {
   position: relative;
   z-index: 1;
   text-align: center;
-  max-width: 90%;
+  padding: 20px;
+  max-width: 600px;
 }
 
 /* =========================
-   LOGO / TEXT
+   LOGO
 ========================= */
 .logo {
-  font-size: 3rem;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
   font-weight: 600;
-  letter-spacing: 2px;
+  letter-spacing: -1px;
 }
 
+/* TAGLINE */
 .tagline {
-  margin-top: 10px;
+  margin-top: 12px;
+  font-size: 1rem;
   opacity: 0.7;
 }
 
@@ -64,89 +68,122 @@ body {
    LINKS
 ========================= */
 .links {
-  margin-top: 40px;
+  margin-top: 50px;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 14px;
 }
 
 .link {
   text-decoration: none;
   color: #fff;
-  font-size: 1.1rem;
-  transition: 0.3s;
+  font-size: 1.05rem;
+  opacity: 0.85;
+
+  transition: all 0.25s ease;
 }
 
 .link:hover {
-  opacity: 0.6;
+  opacity: 1;
+  transform: translateY(-2px);
 }
 
 /* =========================
-   BOTTOM
+   FOOTER STYLE
 ========================= */
 .bottom-stack {
   margin-top: 60px;
   font-size: 0.8rem;
-  opacity: 0.6;
-}
-
-.kauai-link a {
-  color: #fff;
-  text-decoration: none;
+  opacity: 0.5;
 }
 
 /* =========================
    CORNER LOGO
 ========================= */
 .corner-logo {
-  position: absolute;
+  position: fixed;
   top: 20px;
   left: 20px;
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
   z-index: 10;
+  opacity: 0.9;
+
+  transition: 0.3s;
+}
+
+.corner-logo:hover {
+  opacity: 1;
+  transform: scale(1.05);
 }
 
 /* =========================
-   PORTFOLIO
+   PORTFOLIO PAGE
 ========================= */
 .portfolio-body {
   background: #000;
-  min-height: 100vh;
-  padding: 20px;
+  padding: 60px 20px;
 }
 
 /* =========================
-   IMAGE GRID
+   GRID (MODERN APPLE STYLE)
 ========================= */
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+  gap: 12px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .grid img {
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 5px;
+  border-radius: 12px;
+
+  transition: all 0.3s ease;
+}
+
+.grid img:hover {
+  transform: scale(1.03);
+  filter: brightness(1.1);
+}
+
+/* =========================
+   HERO SECTION (OPTIONAL)
+========================= */
+.hero {
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  letter-spacing: -1px;
+}
+
+.hero p {
+  margin-top: 15px;
+  opacity: 0.7;
 }
 
 /* =========================
    RESPONSIVE
 ========================= */
-@media (max-width: 768px) {
-  .logo {
-    font-size: 2.2rem;
-  }
-
+@media (max-width: 900px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   .grid {
     grid-template-columns: 1fr;
+  }
+
+  .links {
+    gap: 12px;
   }
 }
