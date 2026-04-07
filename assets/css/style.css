@@ -194,7 +194,7 @@ body {
 .grid {
   column-count: 3;
   column-gap: 14px;
-  background: rgba(0, 0, 0, 0.2);
+  
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -203,7 +203,7 @@ body {
 .grid img {
   width: 100%;
   height: auto;
-
+  background: rgba(0, 0, 0, 0.2);
   margin-bottom: 14px;
   display: block;
 
