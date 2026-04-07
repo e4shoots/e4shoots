@@ -194,7 +194,7 @@ body {
 .grid {
   column-count: 3;
   column-gap: 14px;
-
+  background: rgba(0, 0, 0, 0.2);
   max-width: 1200px;
   margin: 0 auto;
 }
