@@ -19,7 +19,8 @@ body {
    HOMEPAGE
 ========================= */
 .home-body {
-  min-height: 100vh;
+  height: 100vh;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -37,7 +38,7 @@ body {
   z-index: 0;
 }
 
-/* ENSURE CONTENT IS ABOVE OVERLAY */
+/* CONTENT ON TOP */
 .container {
   position: relative;
   z-index: 1;
@@ -46,7 +47,7 @@ body {
 }
 
 /* =========================
-   LOGO
+   LOGO / TEXT
 ========================= */
 .logo {
   font-size: 3rem;
@@ -56,7 +57,6 @@ body {
 
 .tagline {
   margin-top: 10px;
-  font-size: 1rem;
   opacity: 0.7;
 }
 
@@ -82,7 +82,7 @@ body {
 }
 
 /* =========================
-   BOTTOM STACK
+   BOTTOM
 ========================= */
 .bottom-stack {
   margin-top: 60px;
@@ -91,8 +91,8 @@ body {
 }
 
 .kauai-link a {
-  text-decoration: none;
   color: #fff;
+  text-decoration: none;
 }
 
 /* =========================
@@ -108,7 +108,7 @@ body {
 }
 
 /* =========================
-   PORTFOLIO PAGE
+   PORTFOLIO
 ========================= */
 .portfolio-body {
   background: #000;
@@ -117,7 +117,7 @@ body {
 }
 
 /* =========================
-   GRID (INSTAGRAM STYLE)
+   IMAGE GRID
 ========================= */
 .grid {
   display: grid;
@@ -130,11 +130,6 @@ body {
   height: auto;
   display: block;
   border-radius: 5px;
-  transition: transform 0.3s ease;
-}
-
-.grid img:hover {
-  transform: scale(1.03);
 }
 
 /* =========================
@@ -143,10 +138,6 @@ body {
 @media (max-width: 768px) {
   .logo {
     font-size: 2.2rem;
-  }
-
-  .links {
-    gap: 12px;
   }
 
   .grid {
