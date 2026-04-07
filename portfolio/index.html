@@ -12,60 +12,45 @@
   <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 
-<body class="portfolio-body">
+<body class="home-body">
 
   <!-- Corner Logo -->
   <a href="/">
     <img src="/images/favicon.png" alt="e4shoots logo" class="corner-logo">
   </a>
 
-  <!-- HERO -->
-  <section class="hero">
-    <h1>Portfolio</h1>
-    <p>Selected work from Kaua‘i and beyond.</p>
-  </section>
+  <!-- MAIN CONTENT -->
+  <main class="container">
 
-  <!-- IMAGE GRID -->
-  <section class="grid">
+    <!-- TITLE -->
+    <h1 class="logo">Portfolio</h1>
+    <p class="tagline">Selected work from Kaua‘i and beyond.</p>
 
-    <!-- Replace these with your real images -->
-    <img src="/images/1.jpg" alt="photo 1">
-    <img src="/images/2.jpg" alt="photo 2">
-    <img src="/images/3.jpg" alt="photo 3">
-    <img src="/images/4.jpg" alt="photo 4">
-    <img src="/images/5.jpg" alt="photo 5">
-    <img src="/images/6.jpg" alt="photo 6">
+    <!-- IMAGE GRID -->
+    <section class="grid" style="margin-top:40px;">
 
-    <img src="/images/7.jpg" alt="photo 7">
-    <img src="/images/8.jpg" alt="photo 8">
-    <img src="/images/9.jpg" alt="photo 9">
+      <img src="/images/1.jpg" alt="">
+      <img src="/images/2.jpg" alt="">
+      <img src="/images/3.jpg" alt="">
+      <img src="/images/4.jpg" alt="">
+      <img src="/images/5.jpg" alt="">
+      <img src="/images/6.jpg" alt="">
+      <img src="/images/7.jpg" alt="">
+      <img src="/images/8.jpg" alt="">
+      <img src="/images/9.jpg" alt="">
 
-  </section>
+    </section>
 
-  <!-- OPTIONAL SECTION (ALBUM LINKS / EMBEDS) -->
-  <section class="hero">
-    <h1>Albums</h1>
-    <p>Browse full collections.</p>
-  </section>
+    <!-- BACK LINK -->
+    <div class="bottom-stack">
+      <p>
+        <a href="/" class="link">← Back Home</a>
+      </p>
+    </div>
 
-  <!-- GOOGLE PHOTOS / EMBEDS (SAFE WRAP) -->
-  <section style="max-width:1000px; margin: 0 auto; padding: 20px;">
+  </main>
 
-    <!-- Replace with your actual embed links -->
-    <iframe 
-      src="https://photos.app.goo.gl/your-album-link"
-      style="width:100%; height:500px; border:0;"
-      loading="lazy">
-    </iframe>
-
-  </section>
-
-  <!-- BACK LINK -->
-  <div style="text-align:center; margin: 60px 0;">
-    <a href="/" class="link">← Back to Home</a>
-  </div>
-
-  <!-- Smooth fade-in -->
+  <!-- FADE IN -->
   <script>
     document.body.style.opacity = 0;
     window.addEventListener("load", () => {
