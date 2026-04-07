@@ -2,69 +2,140 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Portfolio | e4shoots</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="../assets/css/style.css">
+  <title>Portfolio</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+  <!-- Your CSS -->
+  <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body class="portfolio-body">
 
-  <!-- BACK BUTTON -->
-  <a href="/" class="back-button">← Back</a>
-
-  <!-- TABS -->
+  <!-- =========================
+       TOP NAV (TABS)
+  ========================= -->
   <div class="portfolio-top">
-    <div class="tabs">
-      <button class="tab active" onclick="switchTab('cars')">Cars</button>
-      <button class="tab" onclick="switchTab('portraits')">Portraits</button>
-      <button class="tab" onclick="switchTab('lifestyle')">Lifestyle</button>
-    </div>
+    <div class="tabs" id="tabs"></div>
   </div>
 
-  <!-- GALLERIES -->
+  <!-- =========================
+       GALLERIES CONTAINER
+  ========================= -->
   <div class="gallery-wrapper">
-
-    <!-- CARS -->
-    <div class="gallery active" id="cars">
-      <img src="../images/cars1.jpg">
-      <img src="../images/cars2.jpg">
-      <img src="../images/cars3.jpg">
-    </div>
-
-    <!-- PORTRAITS -->
-    <div class="gallery" id="portraits">
-      <img src="../images/portraits1.jpg">
-      <img src="../images/portraits2.jpg">
-    </div>
-
-    <!-- LIFESTYLE -->
-    <div class="gallery" id="lifestyle">
-      <img src="../images/life1.jpg">
-      <img src="../images/life2.jpg">
-    </div>
-
+    <div id="galleries"></div>
   </div>
 
+  <!-- =========================
+       MODULAR ALBUM SYSTEM
+  ========================= -->
   <script>
-    function switchTab(tabId) {
+    const cloudName = "YOUR_CLOUD_NAME";
+
+    // 🔥 Modular Albums (EDIT ONLY THIS)
+    const albums = [
+      {
+        id: "album1",
+        title: "Weddings",
+        images: [
+          "sample/1",
+          "sample/2",
+          "sample/3",
+          "sample/4"
+        ]
+      },
+      {
+        id: "album2",
+        title: "Portraits",
+        images: [
+          "sample/5",
+          "sample/6",
+          "sample/7"
+        ]
+      },
+      {
+        id: "album3",
+        title: "Street",
+        images: [
+          "sample/8",
+          "sample/9"
+        ]
+      }
+    ];
+
+    const tabsContainer = document.getElementById("tabs");
+    const galleriesContainer = document.getElementById("galleries");
+
+    // =========================
+    // CREATE TABS
+    // =========================
+    function createTabs() {
+      albums.forEach((album, index) => {
+        const tab = document.createElement("button");
+
+        tab.className = "tab";
+        tab.innerText = album.title;
+
+        if (index === 0) tab.classList.add("active");
+
+        tab.onclick = () => switchAlbum(album.id, tab);
+
+        tabsContainer.appendChild(tab);
+      });
+    }
+
+    // =========================
+    // CREATE GALLERIES
+    // =========================
+    function createGalleries() {
+      albums.forEach((album, index) => {
+        const gallery = document.createElement("div");
+
+        gallery.id = album.id;
+        gallery.className = "gallery";
+
+        if (index === 0) gallery.classList.add("active");
+
+        album.images.forEach(publicId => {
+          const img = document.createElement("img");
+
+          img.src = `https://res.cloudinary.com/${cloudName}/image/upload/${publicId}.jpg`;
+
+          gallery.appendChild(img);
+        });
+
+        galleriesContainer.appendChild(gallery);
+      });
+    }
+
+    // =========================
+    // SWITCH ALBUM
+    // =========================
+    function switchAlbum(id, clickedTab) {
+
       // hide all galleries
       document.querySelectorAll(".gallery").forEach(g => {
         g.classList.remove("active");
       });
 
-      // show selected
-      document.getElementById(tabId).classList.add("active");
+      // show selected gallery
+      document.getElementById(id).classList.add("active");
 
-      // update tab styles
-      document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
-      event.target.classList.add("active");
+      // update tabs
+      document.querySelectorAll(".tab").forEach(t => {
+        t.classList.remove("active");
+      });
 
-      // scroll back to top
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      clickedTab.classList.add("active");
     }
+
+    // =========================
+    // INIT
+    // =========================
+    createTabs();
+    createGalleries();
+
   </script>
 
 </body>
