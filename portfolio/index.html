@@ -1,1 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Portfolio | e4shoots</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <link rel="stylesheet" href="../assets/css/style.css">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+</head>
+
+<body class="portfolio-body">
+
+  <!-- BACK BUTTON -->
+  <a href="/" class="back-button">← Back</a>
+
+  <!-- TOP BAR -->
+  <div class="portfolio-top">
+
+    <div class="tabs">
+      <button class="tab active" onclick="switchAlbum('album1')">Cars</button>
+      <button class="tab" onclick="switchAlbum('album2')">Portraits</button>
+      <button class="tab" onclick="switchAlbum('album3')">Lifestyle</button>
+    </div>
+
+  </div>
+
+  <!-- ALBUM VIEWER -->
+  <div class="album-container">
+
+    <iframe id="albumFrame"
+      src="YOUR_ALBUM_LINK_1"
+      frameborder="0"
+      allowfullscreen>
+    </iframe>
+
+  </div>
+
+  <script>
+    function switchAlbum(album) {
+      const frame = document.getElementById("albumFrame");
+
+      const links = {
+        album1: "YOUR_ALBUM_LINK_1",
+        album2: "YOUR_ALBUM_LINK_2",
+        album3: "YOUR_ALBUM_LINK_3"
+      };
+
+      frame.src = links[album];
+
+      // update active tab
+      document.querySelectorAll(".tab").forEach(tab => tab.classList.remove("active"));
+      event.target.classList.add("active");
+    }
+  </script>
+
+</body>
+</html>
