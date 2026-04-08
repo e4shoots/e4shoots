@@ -5,57 +5,74 @@
   <title>Portfolio | e4shoots</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="/images/favicon.png">
-
-  <!-- Styles -->
+  <link rel="icon" href="/images/favicon.png">
   <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 
 <body class="home-body">
 
-  <!-- Corner Logo -->
+  <!-- Logo -->
   <a href="/">
-    <img src="/images/favicon.png" alt="e4shoots logo" class="corner-logo">
+    <img src="/images/favicon.png" class="corner-logo">
   </a>
 
-  <!-- MAIN CONTENT -->
   <main class="container">
 
-    <!-- TITLE -->
     <h1 class="logo">Portfolio</h1>
-    <p class="tagline">Some of my work.</p>
+    <p class="tagline">Selected work from Kaua‘i and beyond.</p>
 
-    <!-- IMAGE GRID -->
-    <section class="grid" style="margin-top:40px;">
+    <!-- 🔥 TABS -->
+    <div class="tabs">
+      <button class="tab active" data-tab="tab1">Portraits</button>
+      <button class="tab" data-tab="tab2">Lifestyle</button>
+      <button class="tab" data-tab="tab3">Creative</button>
+    </div>
 
-      <img src="/images/1.jpg" alt="">
-      <img src="/images/2.jpg" alt="">
-      <img src="/images/3.jpg" alt="">
-      <img src="/images/4.jpg" alt="">
-      <img src="/images/5.JPG" alt="">
-      <img src="/images/6.jpg" alt="">
-      <img src="/images/7.jpg" alt="">
-      <img src="/images/8.JPG" alt="">
-      <img src="/images/9.jpg" alt="">
+    <!-- 🔥 EMBEDS -->
+    <div class="tab-content">
 
-    </section>
+      <!-- TAB 1 -->
+      <div class="tab-panel active" id="tab1">
+        <iframe src="YOUR_GOOGLE_DRIVE_EMBED_1"
+          class="embed-frame"></iframe>
+      </div>
 
-    <!-- BACK LINK -->
+      <!-- TAB 2 -->
+      <div class="tab-panel" id="tab2">
+        <iframe src="YOUR_GOOGLE_DRIVE_EMBED_2"
+          class="embed-frame"></iframe>
+      </div>
+
+      <!-- TAB 3 -->
+      <div class="tab-panel" id="tab3">
+        <iframe src="YOUR_GOOGLE_DRIVE_EMBED_3"
+          class="embed-frame"></iframe>
+      </div>
+
+    </div>
+
+    <!-- BACK -->
     <div class="bottom-stack">
-      <p>
-        <a href="/" class="link">← Back Home</a>
-      </p>
+      <a href="/" class="link">← Back Home</a>
     </div>
 
   </main>
 
-  <!-- FADE IN -->
+  <!-- 🔥 TAB SCRIPT -->
   <script>
-    document.body.style.opacity = 0;
-    window.addEventListener("load", () => {
-      document.body.style.transition = "opacity 0.6s ease";
-      document.body.style.opacity = 0.9;
+    const tabs = document.querySelectorAll(".tab");
+    const panels = document.querySelectorAll(".tab-panel");
+
+    tabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+
+        tabs.forEach(t => t.classList.remove("active"));
+        panels.forEach(p => p.classList.remove("active"));
+
+        tab.classList.add("active");
+        document.getElementById(tab.dataset.tab).classList.add("active");
+
+      });
     });
   </script>
 
