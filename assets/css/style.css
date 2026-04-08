@@ -24,7 +24,7 @@ body {
 }
 
 /* =========================
-   HOME BACKGROUND (MODERN)
+   HOMEPAGE BACKGROUND
 ========================= */
 .home-body {
   min-height: 100vh;
@@ -32,39 +32,42 @@ body {
   justify-content: center;
   align-items: center;
 
-  position: relative;
+  background: url("/images/homebg.jpg") no-repeat center center / cover;
+  background-attachment: scroll;
 
-  background: url("/images/homebg.jpg") center/cover no-repeat;
-  background-attachment: scroll; /* IMPORTANT: smooth mobile */
+  position: relative;
 }
 
-/* DARK OVERLAY */
+/* OVERLAY */
 .home-body::before {
   content: "";
   position: absolute;
   inset: 0;
+
   background: linear-gradient(
     to bottom,
     rgba(0,0,0,0.4),
-    rgba(0,0,0,0.85)
+    rgba(0,0,0,0.8)
   );
+
   backdrop-filter: blur(6px);
   pointer-events: none;
 }
 
 /* =========================
-   MAIN CONTAINER
+   CONTAINER
 ========================= */
 .container {
   position: relative;
   z-index: 1;
   text-align: center;
   padding: 20px;
-  max-width: 600px;
+  max-width: 700px;
+  width: 100%;
 }
 
 /* =========================
-   LOGO
+   LOGO / TEXT
 ========================= */
 .logo {
   font-size: clamp(2.5rem, 5vw, 3.8rem);
@@ -72,7 +75,6 @@ body {
   letter-spacing: -1px;
 }
 
-/* TAGLINE */
 .tagline {
   margin-top: 12px;
   font-size: 1rem;
@@ -80,7 +82,7 @@ body {
 }
 
 /* =========================
-   LINKS (MODERN BUTTON STYLE)
+   LINKS
 ========================= */
 .links {
   margin-top: 50px;
@@ -128,7 +130,7 @@ body {
 }
 
 /* =========================
-   HERO (CLEAN SPACING)
+   HERO (PORTFOLIO)
 ========================= */
 .hero {
   text-align: center;
@@ -138,7 +140,6 @@ body {
 .hero h1 {
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 600;
-  letter-spacing: -1px;
 }
 
 .hero p {
@@ -147,41 +148,7 @@ body {
 }
 
 /* =========================
-   TABS (MODERN UI)
-========================= */
-.tabs {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  margin: 30px 0 20px;
-}
-
-.tabs button {
-  background: rgba(255,255,255,0.05);
-  border: none;
-  color: #aaa;
-
-  font-size: 14px;
-  padding: 8px 14px;
-  border-radius: 8px;
-
-  cursor: pointer;
-
-  transition: 0.25s;
-}
-
-.tabs button:hover {
-  background: rgba(255,255,255,0.1);
-  color: #fff;
-}
-
-.tabs button.active {
-  background: rgba(255,255,255,0.2);
-  color: #fff;
-}
-
-/* =========================
-   PORTFOLIO
+   PORTFOLIO PAGE
 ========================= */
 .portfolio-body {
   background: #000;
@@ -189,21 +156,78 @@ body {
 }
 
 /* =========================
-   MASONRY GRID (MODERN)
+   TABS (MODULAR SYSTEM)
+========================= */
+.tabs {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.tab {
+  background: rgba(255,255,255,0.05);
+  border: none;
+  color: #aaa;
+
+  padding: 8px 14px;
+  border-radius: 8px;
+
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.tab:hover {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+}
+
+.tab.active {
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+}
+
+/* =========================
+   TAB CONTENT
+========================= */
+.tab-panel {
+  display: none;
+  margin-top: 30px;
+}
+
+.tab-panel.active {
+  display: block;
+}
+
+/* =========================
+   EMBED FRAME
+========================= */
+.embed-frame {
+  width: 100%;
+  height: 70vh;
+  border: none;
+  border-radius: 12px;
+
+  background: #111;
+}
+
+/* =========================
+   MASONRY GRID (OPTIONAL)
 ========================= */
 .grid {
   column-count: 3;
   column-gap: 14px;
-  
+
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 40px auto;
 }
 
 /* IMAGES */
 .grid img {
   width: 100%;
   height: auto;
-  background: rgba(0, 0, 0, 0.2);
+
   margin-bottom: 14px;
   display: block;
 
@@ -215,7 +239,6 @@ body {
   transition: all 0.3s ease;
 }
 
-/* HOVER */
 .grid img:hover {
   transform: scale(1.03);
   filter: brightness(1.1);
@@ -252,10 +275,14 @@ body {
   .hero {
     padding: 100px 16px 40px;
   }
+
+  .embed-frame {
+    height: 60vh;
+  }
 }
 
 /* =========================
-   SMOOTH INTERACTIONS
+   TOUCH FIX
 ========================= */
 a, button {
   -webkit-tap-highlight-color: transparent;
