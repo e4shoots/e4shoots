@@ -59,6 +59,7 @@ body {
   z-index: 1;
   text-align: center;
   padding: 20px;
+  padding-bottom: 120px; /* prevents overlap with footer */
   max-width: 700px;
   width: 100%;
 }
@@ -252,14 +253,19 @@ body {
 }
 
 /* =========================
-   FOOTER (SOLID GRAY)
+   FOOTER (STUCK TO BOTTOM)
 ========================= */
 .bottom-stack {
-  margin-top: 60px;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+
   font-size: 0.8rem;
+  color: #777;
   text-align: center;
 
-  color: #777; /* solid gray */
+  z-index: 5;
 }
 
 .bottom-stack a {
