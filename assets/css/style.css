@@ -1,4 +1,3 @@
-
 /* =========================
    RESET
 ========================= */
@@ -24,7 +23,7 @@ body {
 }
 
 /* =========================
-   BACKGROUND SYSTEM (WORKING BLUR FIX)
+   BACKGROUND (STABLE FIXED VERSION)
 ========================= */
 .home-body {
   min-height: 100vh;
@@ -38,9 +37,7 @@ body {
   background-color: #0a0a0a;
 }
 
-/* =========================
-   BLURRED BACKGROUND (REAL VISUAL LAYER)
-========================= */
+/* BLURRED BACKGROUND */
 .home-body::before {
   content: "";
   position: absolute;
@@ -48,48 +45,21 @@ body {
 
   background: url("/images/homebg.jpg") center center / cover no-repeat;
 
-  /* 🔥 THIS is the actual visible blur layer */
-  filter: blur(22px) brightness(0.55) saturate(1.1);
-
-  transform: scale(1.15);
+  filter: blur(18px) brightness(0.6);
+  transform: scale(1.1);
 
   z-index: 1;
 }
 
-/* =========================
-   SHARP IMAGE LAYER (DIMMED FOR DEPTH)
-========================= */
+/* DARK OVERLAY */
 .home-body::after {
   content: "";
   position: absolute;
   inset: 0;
 
-  background: url("/images/homebg.jpg") center center / cover no-repeat;
+  background: rgba(0,0,0,0.35);
 
   z-index: 2;
-
-  /* IMPORTANT: lets blur show through */
-  opacity: 0.65;
-}
-
-/* =========================
-   CINEMATIC OVERLAY (FINAL DEPTH CONTROL)
-========================= */
-.home-body-overlay {
-  position: absolute;
-  inset: 0;
-
-  background: linear-gradient(
-    to bottom,
-    rgba(0,0,0,0.25),
-    rgba(0,0,0,0.90)
-  );
-
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-
-  z-index: 3;
-  pointer-events: none;
 }
 
 /* =========================
@@ -97,7 +67,7 @@ body {
 ========================= */
 .container {
   position: relative;
-  z-index: 4;
+  z-index: 3;
 
   display: flex;
   flex-direction: column;
@@ -128,7 +98,7 @@ body {
 }
 
 /* =========================
-   LINKS (AUTO BUTTONS)
+   LINKS
 ========================= */
 .links {
   margin-top: 50px;
@@ -296,6 +266,10 @@ body {
 
   .bottom-stack {
     font-size: 0.95rem;
+  }
+
+  .logo {
+    font-size: 2.2rem;
   }
 }
 
