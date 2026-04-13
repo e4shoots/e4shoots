@@ -23,7 +23,7 @@ body {
 }
 
 /* =========================
-   BACKGROUND (STABLE FIXED VERSION)
+   BACKGROUND STYLE
 ========================= */
 .home-body {
   min-height: 100vh;
@@ -31,43 +31,32 @@ body {
   justify-content: center;
   align-items: center;
 
+  background: url("/images/homebg.jpg") no-repeat center center / cover;
   position: relative;
-  overflow: hidden;
-
-  background-color: #0a0a0a;
 }
 
-/* BLURRED BACKGROUND */
+/* overlay */
 .home-body::before {
   content: "";
   position: absolute;
   inset: 0;
 
-  background: url("/images/homebg.jpg") center center / cover no-repeat;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.35),
+    rgba(0,0,0,0.85)
+  );
 
-  filter: blur(18px) brightness(0.6);
-  transform: scale(1.1);
-
-  z-index: 1;
-}
-
-/* DARK OVERLAY */
-.home-body::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  background: rgba(0,0,0,0.35);
-
-  z-index: 2;
+  backdrop-filter: blur(8px);
+  pointer-events: none;
 }
 
 /* =========================
-   CONTENT CONTAINER
+   CONTAINER (CENTERED SYSTEM)
 ========================= */
 .container {
   position: relative;
-  z-index: 3;
+  z-index: 1;
 
   display: flex;
   flex-direction: column;
@@ -98,7 +87,7 @@ body {
 }
 
 /* =========================
-   LINKS
+   LINKS (AUTO BUTTONS)
 ========================= */
 .links {
   margin-top: 50px;
@@ -126,11 +115,48 @@ body {
   border-radius: 6px;
 
   background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(6px);
+
+  transition: all 0.25s ease;
 }
 
 .link:hover {
   background: rgba(255,255,255,0.14);
   color: #fff;
+  transform: translateY(-2px);
+}
+
+/* =========================
+   ICONS (SimpleIcons)
+========================= */
+.icon {
+  width: 18px;
+  height: 18px;
+
+  flex-shrink: 0;
+  opacity: 0.85;
+
+  transition: 0.25s ease;
+}
+
+.link:hover .icon {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+/* =========================
+   ACCENTS
+========================= */
+.accent-blue {
+  color: rgba(0, 140, 255, 0.9);
+}
+
+.accent-green {
+  color: rgba(34, 197, 94, 1);
+}
+
+.muted {
+  color: rgba(255,255,255,0.5);
 }
 
 /* =========================
@@ -145,28 +171,29 @@ body {
   z-index: 10;
 
   opacity: 0.85;
+  transition: all 0.3s ease;
 }
 
 .corner-logo:hover {
   opacity: 1;
+  transform: scale(1.08);
 }
 
 /* =========================
-   FOOTER (FIXED SAFE)
+   FOOTER (SAFE + FIXED)
 ========================= */
 .bottom-stack {
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
 
-  bottom: calc(18px + env(safe-area-inset-bottom));
+  bottom: calc(20px + env(safe-area-inset-bottom));
 
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: #777;
   text-align: center;
 
   z-index: 5;
-  pointer-events: none;
 }
 
 /* =========================
@@ -177,6 +204,7 @@ body {
   gap: 20px;
 
   background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(10px);
 
   padding: 20px;
   border-radius: 10px;
@@ -186,15 +214,15 @@ body {
 }
 
 .about-image {
-  flex: 0.7;
+  flex: 1;
 }
 
 .about-image img {
   width: 100%;
-  max-height: 260px;
+  height: 100%;
 
-  object-fit: cover;
   border-radius: 8px;
+  object-fit: cover;
 }
 
 .about-text {
@@ -213,8 +241,12 @@ body {
   color: rgba(255,255,255,0.6);
 }
 
+.about-text .link {
+  margin-top: 20px;
+}
+
 /* =========================
-   GRID
+   PORTFOLIO GRID
 ========================= */
 .grid {
   column-count: 3;
@@ -222,7 +254,6 @@ body {
 
   max-width: 1200px;
   margin: 40px auto;
-  padding: 0 16px;
 }
 
 .grid img {
@@ -232,6 +263,13 @@ body {
 
   border-radius: 14px;
   break-inside: avoid;
+
+  transition: all 0.3s ease;
+}
+
+.grid img:hover {
+  transform: scale(1.04);
+  filter: brightness(1.1);
 }
 
 /* =========================
@@ -259,17 +297,14 @@ body {
     column-count: 1;
   }
 
-  .link {
-    font-size: 1rem;
-    padding: 12px 16px;
+  .links {
+    gap: 12px;
   }
 
   .bottom-stack {
     font-size: 0.95rem;
-  }
-
-  .logo {
-    font-size: 2.2rem;
+    line-height: 1.6;
+    letter-spacing: 0.3px;
   }
 }
 
