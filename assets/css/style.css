@@ -1,4 +1,4 @@
- /* =========================
+/* =========================
    RESET
 ========================= */
 * {
@@ -89,13 +89,18 @@ body {
   gap: 14px;
 }
 
+/* MAIN BUTTON STYLE */
 .link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
   text-decoration: none;
   color: rgba(255,255,255,0.75);
   font-size: 1.05rem;
 
   padding: 12px 16px;
-  border-radius: 6px; /* 🔥 tiny rounded edges */
+  border-radius: 6px;
 
   background: rgba(255,255,255,0.06);
   backdrop-filter: blur(6px);
@@ -109,7 +114,27 @@ body {
   transform: translateY(-2px);
 }
 
-/* Accent colors */
+/* =========================
+   ICONS (SimpleIcons)
+========================= */
+.icon {
+  width: 18px;
+  height: 18px;
+
+  flex-shrink: 0;
+  opacity: 0.85;
+
+  transition: 0.25s ease;
+}
+
+.link:hover .icon {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+/* =========================
+   ACCENTS
+========================= */
 .accent-blue {
   color: rgba(0, 140, 255, 0.9);
 }
@@ -169,7 +194,7 @@ body {
 }
 
 /* =========================
-   TABS (BUTTONS ALSO)
+   TABS
 ========================= */
 .tabs {
   margin-top: 40px;
@@ -185,7 +210,7 @@ body {
   color: rgba(255,255,255,0.6);
 
   padding: 8px 14px;
-  border-radius: 6px; /* 🔥 same style */
+  border-radius: 6px;
 
   cursor: pointer;
   transition: 0.25s;
@@ -253,7 +278,7 @@ body {
 }
 
 /* =========================
-   FOOTER (SAFE + CENTERED)
+   FOOTER (SAFE + FIXED)
 ========================= */
 .bottom-stack {
   position: fixed;
