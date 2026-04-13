@@ -1,3 +1,4 @@
+
 /* =========================
    RESET
 ========================= */
@@ -23,7 +24,7 @@ body {
 }
 
 /* =========================
-   BACKGROUND (CLEAN + BLUR + PRELOAD READY)
+   BACKGROUND (YOUR ORIGINAL STYLE)
 ========================= */
 .home-body {
   min-height: 100vh;
@@ -34,25 +35,11 @@ body {
   position: relative;
   overflow: hidden;
 
-  background: url("/images/homebg.jpg") center center / cover no-repeat;
+  background: url("/images/homebg.jpg") no-repeat center center / cover;
 }
 
-/* BLUR OVERLAY (THIS IS YOUR LOOK) */
+/* OVERLAY BLUR + DARK GRADIENT */
 .home-body::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  background: inherit;
-
-  filter: blur(18px) brightness(0.65);
-  transform: scale(1.1);
-
-  z-index: 1;
-}
-
-/* DARK OVERLAY (DEPTH) */
-.home-body::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -63,15 +50,18 @@ body {
     rgba(0,0,0,0.85)
   );
 
-  z-index: 2;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  pointer-events: none;
 }
 
 /* =========================
-   CONTENT
+   CONTAINER
 ========================= */
 .container {
   position: relative;
-  z-index: 3;
+  z-index: 1;
 
   display: flex;
   flex-direction: column;
@@ -102,7 +92,7 @@ body {
 }
 
 /* =========================
-   LINKS (CLEAN BUTTONS)
+   LINKS (BUTTONS)
 ========================= */
 .links {
   margin-top: 50px;
@@ -131,6 +121,8 @@ body {
   border-radius: 6px;
 
   background: rgba(255,255,255,0.08);
+
+  transition: all 0.25s ease;
 }
 
 .link:hover {
@@ -160,6 +152,7 @@ body {
   z-index: 10;
 
   opacity: 0.85;
+  transition: 0.3s ease;
 }
 
 .corner-logo:hover {
@@ -167,7 +160,7 @@ body {
 }
 
 /* =========================
-   FOOTER
+   FOOTER (FIXED)
 ========================= */
 .bottom-stack {
   position: fixed;
@@ -184,7 +177,7 @@ body {
 }
 
 /* =========================
-   ABOUT PAGE
+   ABOUT PAGE (DESKTOP)
 ========================= */
 .about-box {
   display: flex;
@@ -204,6 +197,8 @@ body {
 
 .about-image img {
   width: 100%;
+  height: 100%;
+
   border-radius: 8px;
   object-fit: cover;
 }
@@ -246,7 +241,7 @@ body {
 }
 
 /* =========================
-   RESPONSIVE
+   RESPONSIVE (GLOBAL)
 ========================= */
 @media (max-width: 900px) {
   .grid {
@@ -254,17 +249,39 @@ body {
   }
 }
 
+/* =========================
+   ABOUT MOBILE FIX (IMPORTANT)
+========================= */
 @media (max-width: 700px) {
+
   .about-box {
     flex-direction: column;
+    padding: 16px;
+    gap: 14px;
   }
 
   .about-text {
     text-align: center;
     align-items: center;
   }
+
+  .about-image img {
+    height: 220px;
+    width: 100%;
+    object-fit: cover;
+  }
 }
 
+/* extra small phones */
+@media (max-width: 400px) {
+  .about-image img {
+    height: 180px;
+  }
+}
+
+/* =========================
+   PHONE GRID FIX
+========================= */
 @media (max-width: 600px) {
   .grid {
     column-count: 1;
