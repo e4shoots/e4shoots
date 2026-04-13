@@ -1,3 +1,4 @@
+
 /* =========================
    RESET
 ========================= */
@@ -23,7 +24,7 @@ body {
 }
 
 /* =========================
-   LQIP BACKGROUND SYSTEM (PREMIUM)
+   LQIP BACKGROUND SYSTEM (FIXED STACK)
 ========================= */
 .home-body {
   min-height: 100vh;
@@ -34,12 +35,11 @@ body {
   position: relative;
   overflow: hidden;
 
-  /* instant fallback so nothing ever flashes */
   background-color: #0a0a0a;
 }
 
 /* =========================
-   LAYER 1: LOW-RES BLUR (INSTANT)
+   LAYER 1: LOW RES BLUR
 ========================= */
 .home-body::before {
   content: "";
@@ -48,11 +48,13 @@ body {
 
   background: url("/images/homebg-small.jpg") center center / cover no-repeat;
 
-  filter: blur(18px);
-  transform: scale(1.12);
+  filter: blur(20px);
+  transform: scale(1.15);
 
-  opacity: 1;
   z-index: 1;
+
+  /* prevents flicker edges */
+  will-change: transform;
 }
 
 /* =========================
@@ -69,8 +71,8 @@ body {
 
   z-index: 2;
 
-  /* no animation, just clean swap */
-  opacity: 1;
+  /* 🔥 FIX: allow blur to show through */
+  opacity: 0.88;
 }
 
 /* =========================
@@ -94,7 +96,7 @@ body {
 }
 
 /* =========================
-   CONTAINER (CENTERED)
+   CONTENT CONTAINER
 ========================= */
 .container {
   position: relative;
@@ -129,7 +131,7 @@ body {
 }
 
 /* =========================
-   LINKS (AUTO-SIZE BUTTONS)
+   LINKS (AUTO-SIZING BUTTONS)
 ========================= */
 .links {
   margin-top: 50px;
@@ -193,20 +195,23 @@ body {
 }
 
 /* =========================
-   FOOTER (FIXED SAFE)
+   FOOTER (FIXED SAFE + MOBILE FIX)
 ========================= */
 .bottom-stack {
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
 
-  bottom: calc(20px + env(safe-area-inset-bottom));
+  bottom: calc(18px + env(safe-area-inset-bottom));
 
   font-size: 0.8rem;
   color: #777;
   text-align: center;
 
   z-index: 5;
+
+  /* prevents blur overlap issues */
+  pointer-events: none;
 }
 
 /* =========================
@@ -254,7 +259,28 @@ body {
 }
 
 /* =========================
-   RESPONSIVE
+   GRID (FIXED - WAS MISSING FULL RULE)
+========================= */
+.grid {
+  column-count: 3;
+  column-gap: 14px;
+
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 16px;
+}
+
+.grid img {
+  width: 100%;
+  margin-bottom: 14px;
+  display: block;
+
+  border-radius: 14px;
+  break-inside: avoid;
+}
+
+/* =========================
+   RESPONSIVE FIXES
 ========================= */
 @media (max-width: 900px) {
   .grid {
@@ -286,11 +312,23 @@ body {
   .bottom-stack {
     font-size: 0.95rem;
   }
+
+  .logo {
+    font-size: 2.2rem;
+  }
 }
 
 /* =========================
-   TOUCH FIX
+   TOUCH FIX (MOBILE CLEAN)
 ========================= */
 a, button {
   -webkit-tap-highlight-color: transparent;
+}
+
+/* prevent hover weirdness on touch devices */
+@media (hover: none) {
+  .link:hover {
+    background: rgba(255,255,255,0.06);
+    color: rgba(255,255,255,0.75);
+  }
 }
