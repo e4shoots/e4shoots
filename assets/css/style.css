@@ -23,7 +23,7 @@ body {
 }
 
 /* =========================
-   CENTER LAYOUT FIX
+   BACKGROUND STYLE
 ========================= */
 .home-body {
   min-height: 100vh;
@@ -52,7 +52,7 @@ body {
 }
 
 /* =========================
-   CONTAINER (CENTERED)
+   CONTAINER (CENTERED SYSTEM)
 ========================= */
 .container {
   position: relative;
@@ -66,7 +66,8 @@ body {
 
   padding: 20px;
   padding-bottom: 120px;
-  max-width: 700px;
+
+  max-width: 900px;
   width: 100%;
 }
 
@@ -86,43 +87,37 @@ body {
 }
 
 /* =========================
-   LINKS WRAPPER
+   LINKS (AUTO BUTTONS)
 ========================= */
 .links {
   margin-top: 50px;
 
   display: flex;
   flex-direction: column;
-  align-items: center; /* 🔥 IMPORTANT */
+  align-items: center;
+
   gap: 14px;
 }
 
-/* =========================
-   BUTTONS (AUTO WIDTH)
-========================= */
 .link {
-  display: inline-flex; /* 🔥 key for auto-size */
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-
   gap: 10px;
+
+  width: fit-content;
+  white-space: nowrap;
 
   text-decoration: none;
   color: rgba(255,255,255,0.75);
   font-size: 1.05rem;
 
   padding: 12px 18px;
-
   border-radius: 6px;
 
   background: rgba(255,255,255,0.06);
   backdrop-filter: blur(6px);
 
-  width: fit-content; /* 🔥 auto size to text */
-  max-width: 100%;
-
   transition: all 0.25s ease;
-  white-space: nowrap; /* keeps text on one line */
 }
 
 .link:hover {
@@ -132,13 +127,15 @@ body {
 }
 
 /* =========================
-   ICONS
+   ICONS (SimpleIcons)
 ========================= */
 .icon {
   width: 18px;
   height: 18px;
+
   flex-shrink: 0;
   opacity: 0.85;
+
   transition: 0.25s ease;
 }
 
@@ -183,7 +180,7 @@ body {
 }
 
 /* =========================
-   FOOTER
+   FOOTER (SAFE + FIXED)
 ========================= */
 .bottom-stack {
   position: fixed;
@@ -200,18 +197,114 @@ body {
 }
 
 /* =========================
+   ABOUT PAGE
+========================= */
+.about-box {
+  display: flex;
+  gap: 20px;
+
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(10px);
+
+  padding: 20px;
+  border-radius: 10px;
+
+  max-width: 850px;
+  width: 100%;
+}
+
+.about-image {
+  flex: 1;
+}
+
+.about-image img {
+  width: 100%;
+  height: 100%;
+
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.about-text {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  text-align: left;
+}
+
+.about-small {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.6);
+}
+
+.about-text .link {
+  margin-top: 20px;
+}
+
+/* =========================
+   PORTFOLIO GRID
+========================= */
+.grid {
+  column-count: 3;
+  column-gap: 14px;
+
+  max-width: 1200px;
+  margin: 40px auto;
+}
+
+.grid img {
+  width: 100%;
+  margin-bottom: 14px;
+  display: block;
+
+  border-radius: 14px;
+  break-inside: avoid;
+
+  transition: all 0.3s ease;
+}
+
+.grid img:hover {
+  transform: scale(1.04);
+  filter: brightness(1.1);
+}
+
+/* =========================
    RESPONSIVE
 ========================= */
+@media (max-width: 900px) {
+  .grid {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 700px) {
+  .about-box {
+    flex-direction: column;
+  }
+
+  .about-text {
+    text-align: center;
+    align-items: center;
+  }
+}
+
 @media (max-width: 600px) {
+  .grid {
+    column-count: 1;
+  }
+
+  .links {
+    gap: 12px;
+  }
+
   .bottom-stack {
     font-size: 0.95rem;
     line-height: 1.6;
     letter-spacing: 0.3px;
-  }
-
-  .link {
-    font-size: 1rem;
-    padding: 12px 16px;
   }
 }
 
