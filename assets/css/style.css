@@ -201,7 +201,7 @@ body {
 }
 
 .about-image {
-  flex: 1;
+  flex: 0.7;
 }
 
 .about-image img {
