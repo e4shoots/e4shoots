@@ -1,3 +1,4 @@
+
 /* =========================
    RESET
 ========================= */
@@ -23,7 +24,7 @@ body {
 }
 
 /* =========================
-   BACKGROUND STYLE
+   BACKGROUND (PRELOAD + BLUR SYSTEM)
 ========================= */
 .home-body {
   min-height: 100vh;
@@ -31,13 +32,43 @@ body {
   justify-content: center;
   align-items: center;
 
-  background: url("/images/homebg.jpg") no-repeat center center / cover;
   position: relative;
+  overflow: hidden;
+
+  background-color: #0a0a0a;
 }
 
-/* overlay */
+/* LOW RES BLUR LAYER (INSTANT VISUAL) */
 .home-body::before {
   content: "";
+  position: absolute;
+  inset: 0;
+
+  /* IMPORTANT: this should be small image */
+  background: url("/images/homebg-small.jpg") center center / cover no-repeat;
+
+  filter: blur(20px) brightness(0.6);
+  transform: scale(1.15);
+
+  z-index: 1;
+}
+
+/* FULL RES IMAGE LAYER (PRELOADED BY HTML) */
+.home-body::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: url("/images/homebg.jpg") center center / cover no-repeat;
+
+  z-index: 2;
+
+  /* lets blur remain visible */
+  opacity: 0.92;
+}
+
+/* DARK OVERLAY (YOUR ORIGINAL STYLE) */
+.home-body-overlay {
   position: absolute;
   inset: 0;
 
@@ -48,6 +79,9 @@ body {
   );
 
   backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  z-index: 3;
   pointer-events: none;
 }
 
@@ -56,7 +90,7 @@ body {
 ========================= */
 .container {
   position: relative;
-  z-index: 1;
+  z-index: 4;
 
   display: flex;
   flex-direction: column;
@@ -123,40 +157,16 @@ body {
 .link:hover {
   background: rgba(255,255,255,0.14);
   color: #fff;
-  transform: translateY(-2px);
 }
 
 /* =========================
-   ICONS (SimpleIcons)
+   ICONS
 ========================= */
 .icon {
   width: 18px;
   height: 18px;
-
   flex-shrink: 0;
   opacity: 0.85;
-
-  transition: 0.25s ease;
-}
-
-.link:hover .icon {
-  opacity: 1;
-  transform: scale(1.05);
-}
-
-/* =========================
-   ACCENTS
-========================= */
-.accent-blue {
-  color: rgba(0, 140, 255, 0.9);
-}
-
-.accent-green {
-  color: rgba(34, 197, 94, 1);
-}
-
-.muted {
-  color: rgba(255,255,255,0.5);
 }
 
 /* =========================
@@ -171,16 +181,16 @@ body {
   z-index: 10;
 
   opacity: 0.85;
-  transition: all 0.3s ease;
+  transition: 0.3s ease;
 }
 
 .corner-logo:hover {
   opacity: 1;
-  transform: scale(1.08);
+  transform: scale(1.05);
 }
 
 /* =========================
-   FOOTER (SAFE + FIXED)
+   FOOTER (SAFE FIXED)
 ========================= */
 .bottom-stack {
   position: fixed;
@@ -189,7 +199,7 @@ body {
 
   bottom: calc(20px + env(safe-area-inset-bottom));
 
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   color: #777;
   text-align: center;
 
@@ -241,12 +251,8 @@ body {
   color: rgba(255,255,255,0.6);
 }
 
-.about-text .link {
-  margin-top: 20px;
-}
-
 /* =========================
-   PORTFOLIO GRID
+   GRID
 ========================= */
 .grid {
   column-count: 3;
@@ -254,6 +260,7 @@ body {
 
   max-width: 1200px;
   margin: 40px auto;
+  padding: 0 16px;
 }
 
 .grid img {
@@ -263,13 +270,6 @@ body {
 
   border-radius: 14px;
   break-inside: avoid;
-
-  transition: all 0.3s ease;
-}
-
-.grid img:hover {
-  transform: scale(1.04);
-  filter: brightness(1.1);
 }
 
 /* =========================
@@ -303,8 +303,10 @@ body {
 
   .bottom-stack {
     font-size: 0.95rem;
-    line-height: 1.6;
-    letter-spacing: 0.3px;
+  }
+
+  .logo {
+    font-size: 2.2rem;
   }
 }
 
