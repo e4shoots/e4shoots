@@ -306,3 +306,21 @@ body {
 a, button {
   -webkit-tap-highlight-color: transparent;
 }
+
+/* =========================
+   PIXIESET EMBED
+========================= */
+
+.pixieset-frame {
+  position: fixed;
+  inset: 0;
+
+  width: 100%;
+  height: 100vh;
+
+  border: none;
+
+  z-index: 1;
+
+  background: #000;
+}
