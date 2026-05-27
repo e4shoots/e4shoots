@@ -330,26 +330,27 @@ a, button {
 ========================= */
 
 .pricing-grid {
-  margin-top: 50px;
+  margin-top: 55px;
 
   width: 100%;
-  max-width: 1100px;
 
   display: flex;
   justify-content: center;
-  align-items: stretch;
+  align-items: center;
   gap: 20px;
 
   flex-wrap: wrap;
 }
 
 .pricing-card {
-  flex: 1;
-  min-width: 260px;
+  position: relative;
 
-  padding: 30px;
+  width: 240px;
+  min-height: 260px;
 
-  border-radius: 18px;
+  padding: 28px;
+
+  border-radius: 22px;
 
   background: rgba(255,255,255,0.06);
 
@@ -364,21 +365,24 @@ a, button {
 }
 
 .pricing-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-8px);
 
   background: rgba(255,255,255,0.09);
 }
 
 .featured-pricing {
-  transform: scale(1.06);
+  width: 280px;
+  min-height: 320px;
 
   background: rgba(255,255,255,0.1);
 
   border: 1px solid rgba(255,255,255,0.16);
+
+  transform: scale(1.04);
 }
 
 .featured-pricing:hover {
-  transform: scale(1.06) translateY(-6px);
+  transform: scale(1.04) translateY(-8px);
 }
 
 .pricing-badge {
@@ -386,16 +390,16 @@ a, button {
 
   margin-bottom: 18px;
 
-  padding: 6px 12px;
+  padding: 7px 14px;
 
   border-radius: 999px;
 
-  font-size: 0.75rem;
-  letter-spacing: 1px;
-
   background: rgba(255,255,255,0.12);
 
-  color: rgba(255,255,255,0.9);
+  font-size: 0.72rem;
+  letter-spacing: 1px;
+
+  color: rgba(255,255,255,0.92);
 }
 
 .pricing-type {
@@ -410,9 +414,9 @@ a, button {
   font-size: 3rem;
   font-weight: 600;
 
-  margin-bottom: 16px;
-
   letter-spacing: -2px;
+
+  margin-bottom: 16px;
 }
 
 .pricing-description {
@@ -428,12 +432,18 @@ a, button {
     flex-direction: column;
   }
 
+  .pricing-card,
   .featured-pricing {
+    width: 100%;
+    max-width: 420px;
+
+    min-height: auto;
+
     transform: none;
   }
 
   .featured-pricing:hover {
-    transform: translateY(-6px);
+    transform: translateY(-8px);
   }
 
 }
