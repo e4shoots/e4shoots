@@ -24,10 +24,13 @@ body {
 }
 
 /* =========================
-   BACKGROUND
+   BACKGROUND - RESPONSIVE
 ========================= */
 .home-body {
   min-height: 100vh;
+  min-height: 100svh;
+  width: 100%;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -39,17 +42,21 @@ body {
   background: #000;
 }
 
-/* BLURRED IMAGE LAYER */
+/* BLURRED IMAGE */
 .home-body::before {
   content: "";
   position: absolute;
-  inset: -12px;
+  inset: -50px;
+
   z-index: -2;
 
-  background: url("/images/homebg.jpg") no-repeat center center / cover;
+  background-image: url("/images/homebg.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
 
-  filter: blur(8px);
-  transform: scale(1.02);
+  filter: blur(12px);
+  transform: scale(1.05);
 
   pointer-events: none;
 }
@@ -191,7 +198,7 @@ body {
 }
 
 /* =========================
-   ABOUT PAGE
+   ABOUT PAGE (DESKTOP)
 ========================= */
 .about-box {
   display: flex;
@@ -255,7 +262,7 @@ body {
 }
 
 /* =========================
-   RESPONSIVE
+   RESPONSIVE (GLOBAL)
 ========================= */
 @media (max-width: 900px) {
   .grid {
@@ -436,7 +443,9 @@ a, button {
   line-height: 1.7;
 }
 
-/* MOBILE PRICING */
+/* =========================
+   MOBILE PRICING
+========================= */
 @media (max-width: 900px) {
   .pricing-grid {
     flex-direction: column;
