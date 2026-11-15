@@ -37,7 +37,6 @@ body {
 
   position: relative;
   isolation: isolate;
-  overflow: hidden;
 
   background: #000;
 }
@@ -46,21 +45,21 @@ body {
 .home-body::before {
   content: "";
   position: fixed;
-
-  width: 120vw;
-  height: 120vh;
-  height: 120dvh;
-
-  top: -10vh;
-  left: -10vw;
+  inset: 0;
 
   z-index: -2;
 
-  background: url("/images/homebg.jpg") center center / cover no-repeat;
+  background-image: url("/images/homebg.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
 
   filter: blur(16px);
+  transform: scale(1.08);
+  transform-origin: center center;
 
   pointer-events: none;
+  will-change: transform;
 }
 
 /* DARK OVERLAY */
