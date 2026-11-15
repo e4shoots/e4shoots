@@ -24,11 +24,11 @@ body {
 }
 
 /* =========================
-   BACKGROUND - RESPONSIVE
+   BACKGROUND - FULL VIEWPORT
 ========================= */
 .home-body {
   min-height: 100vh;
-  min-height: 100svh;
+  min-height: 100dvh;
   width: 100%;
 
   display: flex;
@@ -42,30 +42,33 @@ body {
   background: #000;
 }
 
-/* BLURRED IMAGE */
+/* BLURRED BACKGROUND IMAGE */
 .home-body::before {
   content: "";
-  position: absolute;
-  inset: -50px;
+  position: fixed;
+
+  width: 120vw;
+  height: 120vh;
+  height: 120dvh;
+
+  top: -10vh;
+  left: -10vw;
 
   z-index: -2;
 
-  background-image: url("/images/homebg.jpg");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
+  background: url("/images/homebg.jpg") center center / cover no-repeat;
 
-  filter: blur(12px);
-  transform: scale(1.05);
+  filter: blur(16px);
 
   pointer-events: none;
 }
 
-/* DARK GRADIENT */
+/* DARK OVERLAY */
 .home-body::after {
   content: "";
-  position: absolute;
+  position: fixed;
   inset: 0;
+
   z-index: -1;
 
   background: linear-gradient(
@@ -465,3 +468,4 @@ a, button {
     transform: translateY(-8px);
   }
 }
+
