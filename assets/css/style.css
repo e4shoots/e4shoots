@@ -24,7 +24,7 @@ body {
 }
 
 /* =========================
-   BACKGROUND (YOUR ORIGINAL STYLE)
+   BACKGROUND
 ========================= */
 .home-body {
   min-height: 100vh;
@@ -33,25 +33,39 @@ body {
   align-items: center;
 
   position: relative;
+  isolation: isolate;
   overflow: hidden;
 
-  background: url("/images/homebg.jpg") no-repeat center center / cover;
+  background: #000;
 }
 
-/* OVERLAY BLUR + DARK GRADIENT */
+/* BLURRED IMAGE LAYER */
 .home-body::before {
   content: "";
   position: absolute;
+  inset: -12px;
+  z-index: -2;
+
+  background: url("/images/homebg.jpg") no-repeat center center / cover;
+
+  filter: blur(8px);
+  transform: scale(1.02);
+
+  pointer-events: none;
+}
+
+/* DARK GRADIENT */
+.home-body::after {
+  content: "";
+  position: absolute;
   inset: 0;
+  z-index: -1;
 
   background: linear-gradient(
     to bottom,
     rgba(0,0,0,0.35),
     rgba(0,0,0,0.85)
   );
-
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
 
   pointer-events: none;
 }
@@ -160,7 +174,7 @@ body {
 }
 
 /* =========================
-   FOOTER (FIXED)
+   FOOTER
 ========================= */
 .bottom-stack {
   position: fixed;
@@ -177,7 +191,7 @@ body {
 }
 
 /* =========================
-   ABOUT PAGE (DESKTOP)
+   ABOUT PAGE
 ========================= */
 .about-box {
   display: flex;
@@ -241,7 +255,7 @@ body {
 }
 
 /* =========================
-   RESPONSIVE (GLOBAL)
+   RESPONSIVE
 ========================= */
 @media (max-width: 900px) {
   .grid {
@@ -250,10 +264,9 @@ body {
 }
 
 /* =========================
-   ABOUT MOBILE FIX (IMPORTANT)
+   ABOUT MOBILE FIX
 ========================= */
 @media (max-width: 700px) {
-
   .about-box {
     flex-direction: column;
     padding: 16px;
@@ -272,7 +285,7 @@ body {
   }
 }
 
-/* extra small phones */
+/* EXTRA SMALL PHONES */
 @media (max-width: 400px) {
   .about-image img {
     height: 180px;
@@ -310,7 +323,6 @@ a, button {
 /* =========================
    PIXIESET EMBED
 ========================= */
-
 .pixieset-frame {
   position: fixed;
   inset: 0;
@@ -328,7 +340,6 @@ a, button {
 /* =========================
    PRICING
 ========================= */
-
 .pricing-grid {
   margin-top: 55px;
 
@@ -425,9 +436,8 @@ a, button {
   line-height: 1.7;
 }
 
-/* MOBILE */
+/* MOBILE PRICING */
 @media (max-width: 900px) {
-
   .pricing-grid {
     flex-direction: column;
   }
@@ -445,5 +455,4 @@ a, button {
   .featured-pricing:hover {
     transform: translateY(-8px);
   }
-
 }
